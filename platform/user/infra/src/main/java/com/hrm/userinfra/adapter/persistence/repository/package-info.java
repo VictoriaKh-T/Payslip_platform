@@ -1,1 +1,1 @@
-package com.example.userinfra.adapter.persistence.repository;
+package com.hrm.userinfra.adapter.persistence.repository;

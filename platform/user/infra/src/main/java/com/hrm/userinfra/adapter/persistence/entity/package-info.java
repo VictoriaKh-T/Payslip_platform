@@ -1,1 +1,1 @@
-package com.example.userinfra.adapter.persistence.entity;
+package com.hrm.userinfra.adapter.persistence.entity;

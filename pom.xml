@@ -4,14 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.hrm.platform</groupId>
-        <artifactId>user</artifactId>
+        <groupId>com.hrm</groupId>
+        <artifactId>hrm_platform-bom</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.hrm</groupId>
     <artifactId>human_resources_manager</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
 
     <properties>
         <java.version>17</java.version>
