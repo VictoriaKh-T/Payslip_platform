@@ -1,12 +1,11 @@
-package com.hr_crm.userboot;
+package com.hrm.boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UserStarter {
-
+public class ServiceStarter {
   public static void main(String[] args) {
-    SpringApplication.run(UserStarter.class, args);
+    SpringApplication.run(ServiceStarter.class, args);
   }
 }
