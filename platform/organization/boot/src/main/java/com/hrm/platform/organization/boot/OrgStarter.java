@@ -1,4 +1,3 @@
 package com.hrm.platform.organization.boot;
 
-public class OrgStarter {
-}
+public class OrgStarter {}
