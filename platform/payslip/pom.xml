@@ -15,9 +15,9 @@
 
   <modules>
     <module>boot</module>
-    <module>infra</module>
     <module>app</module>
     <module>domain</module>
+    <module>infra</module>
   </modules>
 
 </project>
