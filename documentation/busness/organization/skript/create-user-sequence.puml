@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor "UserService" as US
+participant "User Service" as S
+database "Users" as U
+
+' Create New User
+US -> S: CreateUserRequest
+S -> U: find user
+
+S-> S: validate data
+S-> U: create user
+
+U -> S: user
+
+S -> US: CreateUserResponse
+
+@enduml
