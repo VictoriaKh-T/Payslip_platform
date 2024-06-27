@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/ie-diagram
+
+entity "organization" as org {
+* PK: id: varchar
+--
+* name: varchar
+* address: varchar
+* contact: varchar
+* description: varchar
+}
+
+
+entity "employee" as empl {
+* PK: id: varchar
+--
+* full name: varchar
+......
+}
+
+org }|--|| empl
+@enduml
