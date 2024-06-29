@@ -9,8 +9,15 @@
   </parent>
 
   <groupId>com.hrm.platform</groupId>
-  <artifactId>document</artifactId>
+  <artifactId>authorization</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
+
+  <modules>
+    <module>boot</module>
+    <module>app</module>
+    <module>domain</module>
+    <module>infra</module>
+  </modules>
 
 </project>
