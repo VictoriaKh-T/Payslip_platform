@@ -7,12 +7,12 @@ import com.payroll.platform.orgdomain.dto.OrganizationResponse;
 
 public class OrganizationAdapter  implements OrganizationRepository {
     @Override
-    public void save(OrganizationRequest organization) {
-
+    public OrganizationResponse addOrganization(OrganizationRequest organization) {
+        return null;
     }
 
     @Override
-    public OrganizationResponse findByOrganizationId(OrganizationId organization_id) {
+    public OrganizationResponse findByOrganizationId(OrganizationId organizationId) {
         return null;
     }
 

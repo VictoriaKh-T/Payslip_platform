@@ -4,10 +4,8 @@ import com.payroll.platform.orgdomain.dto.OrganizationId;
 import com.payroll.platform.orgdomain.dto.OrganizationRequest;
 import com.payroll.platform.orgdomain.dto.OrganizationResponse;
 
-import java.util.Optional;
-
 public interface OrganizationRepository {
-    void save(OrganizationRequest organization);
+    OrganizationResponse addOrganization(OrganizationRequest organization);
 
     OrganizationResponse findByOrganizationId(OrganizationId organization_id);
 
