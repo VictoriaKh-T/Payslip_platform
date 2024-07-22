@@ -12,13 +12,10 @@ import org.springframework.data.relational.core.mapping.Table;
 @NoArgsConstructor
 @Table(name = "organizations")
 public class OrganizationEntity {
-    @Id
-    private String id;
-    @NonNull
-    private String name;
-    @NonNull
-    private String kodOrganization;
-    private String address;
-    private String contact;
-    private String description;
+  @Id private String id;
+  @NonNull private String name;
+  @NonNull private String kodOrganization;
+  private String address;
+  private String contact;
+  private String description;
 }

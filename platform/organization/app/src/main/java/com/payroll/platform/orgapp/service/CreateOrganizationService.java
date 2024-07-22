@@ -7,14 +7,14 @@ import com.payroll.platform.orgdomain.dto.OrganizationResponse;
 
 public class CreateOrganizationService implements CreateOrganizationUseCase {
 
-    private final OrganizationRepository organizationRepository;
+  private final OrganizationRepository organizationRepository;
 
-    public CreateOrganizationService(OrganizationRepository organizationRepository) {
-        this.organizationRepository = organizationRepository;
-    }
+  public CreateOrganizationService(OrganizationRepository organizationRepository) {
+    this.organizationRepository = organizationRepository;
+  }
 
-    @Override
-    public OrganizationResponse addOrganization(OrganizationRequest request) {
-        return organizationRepository.addOrganization(request);
-    }
+  @Override
+  public OrganizationResponse addOrganization(OrganizationRequest request) {
+    return organizationRepository.addOrganization(request);
+  }
 }

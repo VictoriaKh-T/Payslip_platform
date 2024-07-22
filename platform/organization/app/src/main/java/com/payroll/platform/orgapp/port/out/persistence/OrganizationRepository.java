@@ -5,12 +5,11 @@ import com.payroll.platform.orgdomain.dto.OrganizationRequest;
 import com.payroll.platform.orgdomain.dto.OrganizationResponse;
 
 public interface OrganizationRepository {
-    OrganizationResponse addOrganization(OrganizationRequest organization);
+  OrganizationResponse addOrganization(OrganizationRequest organization);
 
-    OrganizationResponse findByOrganizationId(OrganizationId organization_id);
+  OrganizationResponse findByOrganizationId(OrganizationId organization_id);
 
-    OrganizationResponse findByOrganizationKod(String organization_kod);
+  OrganizationResponse findByOrganizationKod(String organization_kod);
 
-    void deleteOrganizationById(OrganizationId organizationId);
-
+  void deleteOrganizationById(OrganizationId organizationId);
 }

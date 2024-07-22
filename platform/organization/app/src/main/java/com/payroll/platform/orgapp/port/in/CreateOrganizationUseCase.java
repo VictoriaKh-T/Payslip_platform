@@ -5,5 +5,5 @@ import com.payroll.platform.orgdomain.dto.OrganizationResponse;
 
 public interface CreateOrganizationUseCase {
 
-    OrganizationResponse addOrganization (OrganizationRequest organizationRequest);
+  OrganizationResponse addOrganization(OrganizationRequest organizationRequest);
 }
