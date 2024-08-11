@@ -1,8 +1,9 @@
 package com.payroll.platform.orgapp.port.in;
 
-import com.payroll.platform.orgdomain.dto.OrganizationRequest;
+import com.payroll.platform.orgdomain.dto.OrganizationId;
+import com.payroll.platform.orgdomain.dto.OrganizationResponse;
 
 public interface FindOrganizationByOrganizationIdUseCase {
 
-  OrganizationRequest findOrganizationByIdUseCase(Long organization_id);
+  OrganizationResponse findOrganizationByIdUseCase(Long organization_id);
 }

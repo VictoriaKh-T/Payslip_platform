@@ -1,7 +1,7 @@
 package com.payroll.platform.orgapp.port.in;
 
-import com.payroll.platform.orgdomain.dto.OrganizationRequest;
+import com.payroll.platform.orgdomain.dto.OrganizationResponse;
 
 public interface FindOrganizationByKodUseCase {
-  OrganizationRequest findOrganizationByKodUseCase(String organization_kod);
+  OrganizationResponse findOrganizationByKodUseCase(String organization_kod);
 }
