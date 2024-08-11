@@ -6,11 +6,23 @@ import com.payroll.platform.orgdomain.dto.OrganizationRequest;
 import com.payroll.platform.orgdomain.dto.OrganizationResponse;
 import com.payroll.platform.orgdomain.dto.UpdateOrganizationRequest;
 import com.payroll.platform.orgdomain.dto.UpdateOrganizationResponse;
+import com.payroll.platform.orginfra.adapter.driven.persistence.entity.OrganizationEntity;
+import com.payroll.platform.orginfra.mapper.OrganizationDtoToOrganizationMapper;
 
 public class OrganizationAdapter implements OrganizationRepository {
+
+  private final PostgresOrganizationRepository postgresOrganizationRepository;
+  private final OrganizationDtoToOrganizationMapper mapper;
+
+  public OrganizationAdapter(PostgresOrganizationRepository postgresOrganizationRepository, OrganizationDtoToOrganizationMapper mapper) {
+    this.postgresOrganizationRepository = postgresOrganizationRepository;
+    this.mapper = mapper;
+  }
+
   @Override
-  public OrganizationResponse addOrganization(OrganizationRequest organization) {
-    return null;
+  public OrganizationResponse addOrganization(OrganizationRequest organizationRequest) {
+    OrganizationEntity organization = postgresOrganizationRepository.save(mapper.mapToEntity(organizationRequest));
+    return mapper.mapToResponse(organization);
   }
 
   @Override
