@@ -8,10 +8,10 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface OrganizationDtoToOrganizationMapper {
-    OrganizationDtoToOrganizationMapper INSTANCE =
-            Mappers.getMapper(OrganizationDtoToOrganizationMapper.class);
+  OrganizationDtoToOrganizationMapper INSTANCE =
+      Mappers.getMapper(OrganizationDtoToOrganizationMapper.class);
 
-    OrganizationRequest toOrganizationResponse(UpdateOrganizationRequest organizationRequest);
-    UpdateOrganizationResponse toUpdateResponse(OrganizationRequest organizationRequest);
+  OrganizationRequest toOrganizationResponse(UpdateOrganizationRequest organizationRequest);
 
+  UpdateOrganizationResponse toUpdateResponse(OrganizationRequest organizationRequest);
 }

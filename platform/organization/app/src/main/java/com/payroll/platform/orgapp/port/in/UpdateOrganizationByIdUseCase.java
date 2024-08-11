@@ -4,6 +4,6 @@ import com.payroll.platform.orgdomain.dto.UpdateOrganizationRequest;
 import com.payroll.platform.orgdomain.dto.UpdateOrganizationResponse;
 
 public interface UpdateOrganizationByIdUseCase {
-  UpdateOrganizationResponse updateOrganization(Long id,
-      UpdateOrganizationRequest updateOrganizationRequest);
+  UpdateOrganizationResponse updateOrganization(
+      Long id, UpdateOrganizationRequest updateOrganizationRequest);
 }

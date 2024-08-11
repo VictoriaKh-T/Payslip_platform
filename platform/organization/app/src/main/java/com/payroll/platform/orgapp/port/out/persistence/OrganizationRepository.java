@@ -13,7 +13,8 @@ public interface OrganizationRepository {
 
   OrganizationResponse findByOrganizationKod(String organization_kod);
 
-  UpdateOrganizationResponse updateOrganizationById(Long organization_Id, UpdateOrganizationRequest request);
+  UpdateOrganizationResponse updateOrganizationById(
+      Long organization_Id, UpdateOrganizationRequest request);
 
   void deleteOrganizationById(OrganizationId organizationId);
 }

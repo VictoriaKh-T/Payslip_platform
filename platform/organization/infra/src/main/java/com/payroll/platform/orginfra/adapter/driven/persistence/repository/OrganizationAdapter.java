@@ -24,7 +24,8 @@ public class OrganizationAdapter implements OrganizationRepository {
   }
 
   @Override
-  public UpdateOrganizationResponse updateOrganizationById(Long organization_Id, UpdateOrganizationRequest request) {
+  public UpdateOrganizationResponse updateOrganizationById(
+      Long organization_Id, UpdateOrganizationRequest request) {
     return null;
   }
 
