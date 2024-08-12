@@ -7,7 +7,10 @@ import com.payroll.platform.orgdomain.dto.OrganizationResponse;
 import com.payroll.platform.orgdomain.dto.UpdateOrganizationRequest;
 import com.payroll.platform.orgdomain.dto.UpdateOrganizationResponse;
 import com.payroll.platform.orginfra.adapter.driven.persistence.entity.OrganizationEntity;
+import com.payroll.platform.orginfra.exeption.OrganizationNotFoundException;
 import com.payroll.platform.orginfra.mapper.OrganizationDtoToOrganizationMapper;
+
+import java.util.Optional;
 
 public class OrganizationAdapter implements OrganizationRepository {
 
@@ -27,7 +30,11 @@ public class OrganizationAdapter implements OrganizationRepository {
 
   @Override
   public OrganizationResponse findByOrganizationId(OrganizationId organizationId) {
-    return null;
+    OrganizationEntity organization
+            = postgresOrganizationRepository.findById(organizationId.organizationId()).orElseThrow( ()
+                     -> new OrganizationNotFoundException("can`t find book by id" +
+            organizationId.organizationId()));
+    return mapper.mapToResponse(organization);
   }
 
   @Override
