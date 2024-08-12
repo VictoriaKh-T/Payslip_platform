@@ -13,7 +13,5 @@ public interface OrganizationDtoToOrganizationMapper {
 
   OrganizationEntity mapToEntity(OrganizationRequest request);
 
-  OrganizationResponse mapToResponse (OrganizationEntity entity);
-
-
+  OrganizationResponse mapToResponse(OrganizationEntity entity);
 }

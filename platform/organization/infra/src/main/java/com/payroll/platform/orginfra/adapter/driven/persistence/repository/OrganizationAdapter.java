@@ -10,37 +10,46 @@ import com.payroll.platform.orginfra.adapter.driven.persistence.entity.Organizat
 import com.payroll.platform.orginfra.exeption.OrganizationNotFoundException;
 import com.payroll.platform.orginfra.mapper.OrganizationDtoToOrganizationMapper;
 
-import java.util.Optional;
-
 public class OrganizationAdapter implements OrganizationRepository {
 
   private final PostgresOrganizationRepository postgresOrganizationRepository;
   private final OrganizationDtoToOrganizationMapper mapper;
 
-  public OrganizationAdapter(PostgresOrganizationRepository postgresOrganizationRepository, OrganizationDtoToOrganizationMapper mapper) {
+  public OrganizationAdapter(
+      PostgresOrganizationRepository postgresOrganizationRepository,
+      OrganizationDtoToOrganizationMapper mapper) {
     this.postgresOrganizationRepository = postgresOrganizationRepository;
     this.mapper = mapper;
   }
 
   @Override
   public OrganizationResponse addOrganization(OrganizationRequest organizationRequest) {
-    OrganizationEntity organization = postgresOrganizationRepository.save(mapper.mapToEntity(organizationRequest));
+    OrganizationEntity organization =
+        postgresOrganizationRepository.save(mapper.mapToEntity(organizationRequest));
     return mapper.mapToResponse(organization);
   }
 
   @Override
   public OrganizationResponse findByOrganizationId(OrganizationId organizationId) {
-    OrganizationEntity organization
-            = postgresOrganizationRepository.findById(organizationId.organizationId()).orElseThrow( ()
-                     -> new OrganizationNotFoundException("can`t find book by id" +
-            organizationId.organizationId()));
+    OrganizationEntity organization =
+        postgresOrganizationRepository
+            .findById(organizationId.organizationId())
+            .orElseThrow(
+                () ->
+                    new OrganizationNotFoundException(
+                        "can`t find book by id" + organizationId.organizationId()));
     return mapper.mapToResponse(organization);
   }
 
   @Override
   public OrganizationResponse findByOrganizationKod(String organization_kod) {
-    return mapper.mapToResponse(postgresOrganizationRepository.findByKodOrganization(organization_kod).orElseThrow(
-            () -> new OrganizationNotFoundException("can`t find book by kod" + organization_kod)));
+    return mapper.mapToResponse(
+        postgresOrganizationRepository
+            .findByKodOrganization(organization_kod)
+            .orElseThrow(
+                () ->
+                    new OrganizationNotFoundException(
+                        "can`t find book by kod" + organization_kod)));
   }
 
   @Override
