@@ -24,40 +24,38 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/organizations")
 public class OrganizationController {
-    private final OrganizationAdapter adapter;
+  private final OrganizationAdapter adapter;
 
-    @GetMapping("/{id}")
-    @Tag(name = "Get organization",
-            description = "This endpoint get an organization by ID")
-    public OrganizationResponse findOrganizationById(@PathVariable Long id) {
-        return adapter.findByOrganizationId(new OrganizationId(id));
-        // change to Long id instant of OrganizationId
-    }
+  @GetMapping("/{id}")
+  @Tag(name = "Get organization", description = "This endpoint get an organization by ID")
+  public OrganizationResponse findOrganizationById(@PathVariable Long id) {
+    return adapter.findByOrganizationId(new OrganizationId(id));
+    // change to Long id instant of OrganizationId
+  }
 
-    @GetMapping("{/kod}")
-    @Tag(name = "Get organization",
-            description = "This endpoint get an organization by organization_kod")
-    public OrganizationResponse findOrganizationByKod (@PathVariable String kod) {
-        return adapter.findByOrganizationKod(kod);
-    }
+  @GetMapping("{/kod}")
+  @Tag(
+      name = "Get organization",
+      description = "This endpoint get an organization by organization_kod")
+  public OrganizationResponse findOrganizationByKod(@PathVariable String kod) {
+    return adapter.findByOrganizationKod(kod);
+  }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    @Tag(name = "Create new organization",
-            description = "This endpoint create an organization")
-    public  OrganizationResponse createOrganization(@RequestBody OrganizationRequest request) {
-        return adapter.addOrganization(request);
-    }
+  @PostMapping
+  @ResponseStatus(HttpStatus.CREATED)
+  @Tag(name = "Create new organization", description = "This endpoint create an organization")
+  public OrganizationResponse createOrganization(@RequestBody OrganizationRequest request) {
+    return adapter.addOrganization(request);
+  }
 
-    @PutMapping("{/id}")
-    public UpdateOrganizationResponse updateOrganization(@PathVariable Long id,
-                                                         @RequestBody UpdateOrganizationRequest request) {
-        return adapter.updateOrganizationById(id, request);
-    }
+  @PutMapping("{/id}")
+  public UpdateOrganizationResponse updateOrganization(
+      @PathVariable Long id, @RequestBody UpdateOrganizationRequest request) {
+    return adapter.updateOrganizationById(id, request);
+  }
 
-    @DeleteMapping("{/id}")
-    public void deleteOrganization (@PathVariable Long id) {
-        adapter.deleteOrganizationById(new OrganizationId(id));
-    }
-
+  @DeleteMapping("{/id}")
+  public void deleteOrganization(@PathVariable Long id) {
+    adapter.deleteOrganizationById(new OrganizationId(id));
+  }
 }
