@@ -56,12 +56,10 @@ public class OrganizationAdapter implements OrganizationRepository {
   public UpdateOrganizationResponse updateOrganizationById(
       Long organization_Id, UpdateOrganizationRequest request) {
     OrganizationEntity organization =
-            postgresOrganizationRepository
-                    .findById(organization_Id)
-                    .orElseThrow(
-                            () ->
-                                    new OrganizationNotFoundException(
-                                            "can`t find book by id" + organization_Id));
+        postgresOrganizationRepository
+            .findById(organization_Id)
+            .orElseThrow(
+                () -> new OrganizationNotFoundException("can`t find book by id" + organization_Id));
     organization.setKodOrganization(request.kodOrganization());
     organization.setName(request.name());
     organization.setAddress(request.address());
@@ -72,12 +70,12 @@ public class OrganizationAdapter implements OrganizationRepository {
   @Override
   public void deleteOrganizationById(OrganizationId organizationId) {
     OrganizationEntity organization =
-            postgresOrganizationRepository
-                    .findById(organizationId.organizationId())
-                    .orElseThrow(
-                            () ->
-                                    new OrganizationNotFoundException(
-                                            "can`t find book by id" + organizationId.organizationId()));
+        postgresOrganizationRepository
+            .findById(organizationId.organizationId())
+            .orElseThrow(
+                () ->
+                    new OrganizationNotFoundException(
+                        "can`t find book by id" + organizationId.organizationId()));
     postgresOrganizationRepository.delete(organization);
   }
 }
