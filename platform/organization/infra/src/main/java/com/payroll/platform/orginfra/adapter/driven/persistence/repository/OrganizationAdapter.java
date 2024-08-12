@@ -70,5 +70,14 @@ public class OrganizationAdapter implements OrganizationRepository {
   }
 
   @Override
-  public void deleteOrganizationById(OrganizationId organizationId) {}
+  public void deleteOrganizationById(OrganizationId organizationId) {
+    OrganizationEntity organization =
+            postgresOrganizationRepository
+                    .findById(organizationId.organizationId())
+                    .orElseThrow(
+                            () ->
+                                    new OrganizationNotFoundException(
+                                            "can`t find book by id" + organizationId.organizationId()));
+    postgresOrganizationRepository.delete(organization);
+  }
 }
