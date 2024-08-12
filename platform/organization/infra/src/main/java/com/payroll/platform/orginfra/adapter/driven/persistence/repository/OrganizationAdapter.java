@@ -39,7 +39,8 @@ public class OrganizationAdapter implements OrganizationRepository {
 
   @Override
   public OrganizationResponse findByOrganizationKod(String organization_kod) {
-    return null;
+    return mapper.mapToResponse(postgresOrganizationRepository.findByKodOrganization(organization_kod).orElseThrow(
+            () -> new OrganizationNotFoundException("can`t find book by kod" + organization_kod)));
   }
 
   @Override
