@@ -55,7 +55,18 @@ public class OrganizationAdapter implements OrganizationRepository {
   @Override
   public UpdateOrganizationResponse updateOrganizationById(
       Long organization_Id, UpdateOrganizationRequest request) {
-    return null;
+    OrganizationEntity organization =
+            postgresOrganizationRepository
+                    .findById(organization_Id)
+                    .orElseThrow(
+                            () ->
+                                    new OrganizationNotFoundException(
+                                            "can`t find book by id" + organization_Id));
+    organization.setKodOrganization(request.kodOrganization());
+    organization.setName(request.name());
+    organization.setAddress(request.address());
+    postgresOrganizationRepository.save(organization);
+    return mapper.mapToUpdateResponse(organization);
   }
 
   @Override
