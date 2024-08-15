@@ -37,7 +37,7 @@ public class OrganizationAdapter implements OrganizationRepository {
             .orElseThrow(
                 () ->
                     new OrganizationNotFoundException(
-                        "can`t find book by id" + organizationId.organizationId()));
+                        "can`t find organization by id" + organizationId.organizationId()));
     return mapper.mapToResponse(organization);
   }
 
@@ -49,7 +49,7 @@ public class OrganizationAdapter implements OrganizationRepository {
             .orElseThrow(
                 () ->
                     new OrganizationNotFoundException(
-                        "can`t find book by kod" + organization_kod)));
+                        "can`t find organization by kod" + organization_kod)));
   }
 
   @Override
@@ -59,7 +59,7 @@ public class OrganizationAdapter implements OrganizationRepository {
         postgresOrganizationRepository
             .findById(organization_Id)
             .orElseThrow(
-                () -> new OrganizationNotFoundException("can`t find book by id" + organization_Id));
+                () -> new OrganizationNotFoundException("can`t find organization by id" + organization_Id));
     organization.setKodOrganization(request.kodOrganization());
     organization.setName(request.name());
     organization.setAddress(request.address());
@@ -75,7 +75,7 @@ public class OrganizationAdapter implements OrganizationRepository {
             .orElseThrow(
                 () ->
                     new OrganizationNotFoundException(
-                        "can`t find book by id" + organizationId.organizationId()));
+                        "can`t find organization by id" + organizationId.organizationId()));
     postgresOrganizationRepository.delete(organization);
   }
 }
