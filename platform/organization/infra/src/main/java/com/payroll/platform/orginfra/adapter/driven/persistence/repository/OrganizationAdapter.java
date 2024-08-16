@@ -10,6 +10,8 @@ import com.payroll.platform.orginfra.adapter.driven.persistence.entity.Organizat
 import com.payroll.platform.orginfra.exeption.OrganizationNotFoundException;
 import com.payroll.platform.orginfra.mapper.OrganizationDtoToOrganizationMapper;
 
+import java.util.List;
+
 public class OrganizationAdapter implements OrganizationRepository {
 
   private final PostgresOrganizationRepository postgresOrganizationRepository;
@@ -77,5 +79,12 @@ public class OrganizationAdapter implements OrganizationRepository {
                     new OrganizationNotFoundException(
                         "can`t find organization by id" + organizationId.organizationId()));
     postgresOrganizationRepository.delete(organization);
+  }
+
+  @Override
+  public List<OrganizationResponse> findAllOrganizations() {
+    return postgresOrganizationRepository.findAll().stream()
+            .map(mapper::mapToResponse)
+            .toList();
   }
 }

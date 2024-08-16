@@ -2,6 +2,7 @@ package com.payroll.platform.orginfra.adapter.driving.controller;
 
 import com.payroll.platform.orgapp.port.in.CreateOrganizationUseCase;
 import com.payroll.platform.orgapp.port.in.DeleteOrganizationUseCase;
+import com.payroll.platform.orgapp.port.in.FindAllOrganizationsUseCase;
 import com.payroll.platform.orgapp.port.in.FindOrganizationByKodUseCase;
 import com.payroll.platform.orgapp.port.in.FindOrganizationByOrganizationIdUseCase;
 import com.payroll.platform.orgapp.port.in.UpdateOrganizationByIdUseCase;
@@ -10,7 +11,6 @@ import com.payroll.platform.orgdomain.dto.OrganizationRequest;
 import com.payroll.platform.orgdomain.dto.OrganizationResponse;
 import com.payroll.platform.orgdomain.dto.UpdateOrganizationRequest;
 import com.payroll.platform.orgdomain.dto.UpdateOrganizationResponse;
-import com.payroll.platform.orginfra.adapter.driven.persistence.repository.OrganizationAdapter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -24,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @Tag(name = "Organization management", description = "Endpoints for managing organization")
 @RequiredArgsConstructor
 @RestController
@@ -34,6 +36,13 @@ public class OrganizationController {
   private final UpdateOrganizationByIdUseCase updateOrganizationById;
   private final DeleteOrganizationUseCase deleteOrganization;
   private final CreateOrganizationUseCase createOrganization;
+  private final FindAllOrganizationsUseCase findAllOrganizations;
+
+  @GetMapping
+  @Tag(name = "Get organizations", description = "This endpoint get all organizations")
+  public List<OrganizationResponse> findAllOrganizations() {
+    return findAllOrganizations.findAll();
+  }
 
   @GetMapping("/{id}")
   @Tag(name = "Get organization", description = "This endpoint get an organization by ID")

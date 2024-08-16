@@ -6,6 +6,8 @@ import com.payroll.platform.orgdomain.dto.OrganizationResponse;
 import com.payroll.platform.orgdomain.dto.UpdateOrganizationRequest;
 import com.payroll.platform.orgdomain.dto.UpdateOrganizationResponse;
 
+import java.util.List;
+
 public interface OrganizationRepository {
   OrganizationResponse addOrganization(OrganizationRequest organization);
 
@@ -17,4 +19,6 @@ public interface OrganizationRepository {
       Long organization_Id, UpdateOrganizationRequest request);
 
   void deleteOrganizationById(OrganizationId organizationId);
+
+  List<OrganizationResponse> findAllOrganizations();
 }
