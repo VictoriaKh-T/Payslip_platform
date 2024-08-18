@@ -1,11 +1,11 @@
 package com.payroll.platform.organization.boot;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@OpenAPIDefinition
+@ComponentScan(basePackages = {"com.payroll.platform.organization"})
 public class OrganizationStarter {
   public static void main(String[] args) {
     SpringApplication.run(OrganizationStarter.class, args);
