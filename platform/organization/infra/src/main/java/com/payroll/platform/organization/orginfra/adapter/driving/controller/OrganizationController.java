@@ -49,7 +49,7 @@ public class OrganizationController {
     return findOrganizationByOrganizationId.findOrganizationByIdUseCase(id);
   }
 
-  @GetMapping("{/kod}")
+  @GetMapping("/{kod}")
   @Tag(
       name = "Get organization",
       description = "This endpoint get an organization by organization_kod")
@@ -64,13 +64,13 @@ public class OrganizationController {
     return createOrganization.addOrganization(request);
   }
 
-  @PutMapping("{/id}")
+  @PutMapping("/{id}")
   public UpdateOrganizationResponse updateOrganization(
       @PathVariable Long id, @RequestBody UpdateOrganizationRequest request) {
     return updateOrganizationById.updateOrganization(id, request);
   }
 
-  @DeleteMapping("{/id}")
+  @DeleteMapping("/{id}")
   public void deleteOrganization(@PathVariable Long id) {
     deleteOrganization.deleteOrganizationById(new OrganizationId(id));
   }

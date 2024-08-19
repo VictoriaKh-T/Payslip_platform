@@ -1,5 +1,6 @@
 package com.payroll.platform.organization.orginfra.adapter.driven.persistence.repository;
 
+import com.payroll.platform.hexagonal.annotations.Adapter;
 import com.payroll.platform.organization.orgapp.port.out.persistence.OrganizationRepository;
 import com.payroll.platform.organization.orgdomain.dto.OrganizationId;
 import com.payroll.platform.organization.orgdomain.dto.OrganizationRequest;
@@ -7,31 +8,31 @@ import com.payroll.platform.organization.orgdomain.dto.OrganizationResponse;
 import com.payroll.platform.organization.orgdomain.dto.UpdateOrganizationRequest;
 import com.payroll.platform.organization.orgdomain.dto.UpdateOrganizationResponse;
 import com.payroll.platform.organization.orginfra.adapter.driven.persistence.entity.OrganizationEntity;
+import com.payroll.platform.organization.orginfra.adapter.driven.persistence.repository.OrganizationPostgresRepository;
 import com.payroll.platform.organization.orginfra.exeption.OrganizationNotFoundException;
 import com.payroll.platform.organization.orginfra.mapper.OrganizationDtoToOrganizationMapper;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
-@Component
+@Adapter
 @RequiredArgsConstructor
 public class OrganizationAdapter implements OrganizationRepository {
 
-  private final PostgresOrganizationRepository postgresOrganizationRepository;
+  private final OrganizationPostgresRepository organizationPostgresRepository;
   private final OrganizationDtoToOrganizationMapper mapper =
       OrganizationDtoToOrganizationMapper.INSTANCE;
 
   @Override
   public OrganizationResponse addOrganization(OrganizationRequest organizationRequest) {
     OrganizationEntity organization =
-        postgresOrganizationRepository.save(mapper.mapToEntity(organizationRequest));
+        organizationPostgresRepository.save(mapper.mapToEntity(organizationRequest));
     return mapper.mapToResponse(organization);
   }
 
   @Override
   public OrganizationResponse findByOrganizationId(OrganizationId organizationId) {
     OrganizationEntity organization =
-        postgresOrganizationRepository
+        organizationPostgresRepository
             .findById(organizationId.organizationId())
             .orElseThrow(
                 () ->
@@ -43,7 +44,7 @@ public class OrganizationAdapter implements OrganizationRepository {
   @Override
   public OrganizationResponse findByOrganizationKod(String organization_kod) {
     return mapper.mapToResponse(
-        postgresOrganizationRepository
+        organizationPostgresRepository
             .findByKodOrganization(organization_kod)
             .orElseThrow(
                 () ->
@@ -55,7 +56,7 @@ public class OrganizationAdapter implements OrganizationRepository {
   public UpdateOrganizationResponse updateOrganizationById(
       Long organization_Id, UpdateOrganizationRequest request) {
     OrganizationEntity organization =
-        postgresOrganizationRepository
+        organizationPostgresRepository
             .findById(organization_Id)
             .orElseThrow(
                 () ->
@@ -64,24 +65,24 @@ public class OrganizationAdapter implements OrganizationRepository {
     organization.setKodOrganization(request.kodOrganization());
     organization.setName(request.name());
     organization.setAddress(request.address());
-    postgresOrganizationRepository.save(organization);
+    organizationPostgresRepository.save(organization);
     return mapper.mapToUpdateResponse(organization);
   }
 
   @Override
   public void deleteOrganizationById(OrganizationId organizationId) {
     OrganizationEntity organization =
-        postgresOrganizationRepository
+        organizationPostgresRepository
             .findById(organizationId.organizationId())
             .orElseThrow(
                 () ->
                     new OrganizationNotFoundException(
                         "can`t find organization by id" + organizationId.organizationId()));
-    postgresOrganizationRepository.delete(organization);
+    organizationPostgresRepository.delete(organization);
   }
 
   @Override
   public List<OrganizationResponse> findAllOrganizations() {
-    return postgresOrganizationRepository.findAll().stream().map(mapper::mapToResponse).toList();
+    return organizationPostgresRepository.findAll().stream().map(mapper::mapToResponse).toList();
   }
 }
