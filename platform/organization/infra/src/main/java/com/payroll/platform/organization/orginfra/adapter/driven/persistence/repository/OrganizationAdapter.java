@@ -8,7 +8,6 @@ import com.payroll.platform.organization.orgdomain.dto.OrganizationResponse;
 import com.payroll.platform.organization.orgdomain.dto.UpdateOrganizationRequest;
 import com.payroll.platform.organization.orgdomain.dto.UpdateOrganizationResponse;
 import com.payroll.platform.organization.orginfra.adapter.driven.persistence.entity.OrganizationEntity;
-import com.payroll.platform.organization.orginfra.adapter.driven.persistence.repository.OrganizationPostgresRepository;
 import com.payroll.platform.organization.orginfra.exeption.OrganizationNotFoundException;
 import com.payroll.platform.organization.orginfra.mapper.OrganizationDtoToOrganizationMapper;
 import java.util.List;

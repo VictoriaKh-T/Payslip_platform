@@ -10,7 +10,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages = "com.payroll.platform.organization")
 @EnableJpaRepositories(basePackages = "com.payroll.platform.organization")
 @EntityScan(basePackages = "com.payroll.platform.organization")
-
 public class OrganizationStarter {
   public static void main(String[] args) {
     SpringApplication.run(OrganizationStarter.class, args);

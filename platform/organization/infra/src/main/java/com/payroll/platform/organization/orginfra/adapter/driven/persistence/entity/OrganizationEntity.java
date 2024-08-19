@@ -13,12 +13,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table (name = "organizations")
+@Table(name = "organizations")
 @Entity
 public class OrganizationEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+
   @NonNull private String name;
   @NonNull private String kodOrganization;
   private String address;
