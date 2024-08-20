@@ -1,0 +1,88 @@
+!SESSION 2024-08-18 20:35:49.662 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=18.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=uk_UA
+Framework arguments:  -product org.eclipse.platform.ide
+Command-line arguments:  -product org.eclipse.platform.ide -data D:\homework\HRM_Platform\platform\organization\boot\src\main\java\com\payroll\platform\organization\boot -dev file:D:/eclipse-workspace/.metadata/.plugins/org.eclipse.pde.core/Starter/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.egit.core 1 0 2024-08-18 20:36:03.480
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-08-18 20:36:19.201
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Viktoriya'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2024-08-19 21:15:49.212 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=18.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=uk_UA
+Framework arguments:  -product org.eclipse.platform.ide
+Command-line arguments:  -product org.eclipse.platform.ide -data D:\homework\HRM_Platform\platform\organization\boot\src\main\java\com\payroll\platform\organization\boot -dev file:D:/eclipse-workspace/.metadata/.plugins/org.eclipse.pde.core/Starter/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.egit.core 1 0 2024-08-19 21:16:00.793
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-08-19 21:16:10.829
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Viktoriya'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2024-08-19 21:20:59.878 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=18.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=uk_UA
+Framework arguments:  -product org.eclipse.platform.ide
+Command-line arguments:  -product org.eclipse.platform.ide -data D:\homework\HRM_Platform\platform\organization\boot\src\main\java\com\payroll\platform\organization\boot -dev file:D:/eclipse-workspace/.metadata/.plugins/org.eclipse.pde.core/Starter/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.egit.core 1 0 2024-08-19 21:21:10.981
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-08-19 21:21:16.084
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Viktoriya'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2024-08-19 21:23:39.953 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=18.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=uk_UA
+Framework arguments:  -product org.eclipse.platform.ide
+Command-line arguments:  -product org.eclipse.platform.ide -data D:\homework\HRM_Platform\platform\organization\boot\src\main\java\com\payroll\platform\organization\boot -dev file:D:/eclipse-workspace/.metadata/.plugins/org.eclipse.pde.core/Starter/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.egit.core 1 0 2024-08-19 21:23:53.777
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-08-19 21:24:01.561
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Viktoriya'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2024-08-19 21:26:41.465 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=18.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=uk_UA
+Framework arguments:  -product org.eclipse.platform.ide
+Command-line arguments:  -product org.eclipse.platform.ide -data D:\homework\HRM_Platform\platform\organization\boot\src\main\java\com\payroll\platform\organization\boot -dev file:D:/eclipse-workspace/.metadata/.plugins/org.eclipse.pde.core/Starter/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.egit.core 1 0 2024-08-19 21:26:55.356
+!MESSAGE Using Apache MINA sshd as ssh client.
+!SESSION 2024-08-19 21:46:58.890 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=18.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=uk_UA
+Framework arguments:  -product org.eclipse.platform.ide
+Command-line arguments:  -product org.eclipse.platform.ide -data D:\homework\HRM_Platform\platform\organization\boot\src\main\java\com\payroll\platform\organization\boot -dev file:D:/eclipse-workspace/.metadata/.plugins/org.eclipse.pde.core/Starter/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.egit.core 1 0 2024-08-19 21:47:11.764
+!MESSAGE Using Apache MINA sshd as ssh client.
