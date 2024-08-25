@@ -1,4 +1,4 @@
-package com.payroll.userinfra.adapter.persistence.entity;
+package com.payroll.userinfra.adapter.driven.persistence.entity;
 
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
