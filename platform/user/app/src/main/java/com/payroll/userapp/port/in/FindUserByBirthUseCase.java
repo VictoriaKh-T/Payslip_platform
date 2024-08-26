@@ -1,8 +1,8 @@
 package com.payroll.userapp.port.in;
 
 import com.payroll.userdomain.dto.UserResponse;
-import java.time.LocalDate;
+import java.util.Date;
 
 public interface FindUserByBirthUseCase {
-    UserResponse findUserByBirth(LocalDate date);
+    UserResponse findUserByBirth(Date date);
 }

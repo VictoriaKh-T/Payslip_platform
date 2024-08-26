@@ -1,22 +1,22 @@
 package com.payroll.userapp.service;
 
 import com.payroll.platform.hexagonal.annotations.UseCase;
-import com.payroll.userapp.port.in.FindUserByBirthUseCase;
+import com.payroll.userapp.port.in.FindAllUsersUseCase;
 import com.payroll.userapp.port.out.persistence.UserRepository;
 import com.payroll.userdomain.dto.UserResponse;
-import java.util.Date;
+
+import java.util.List;
 
 @UseCase
-public class FindUserByBirthService implements FindUserByBirthUseCase {
-
+public class FindAllUsersService implements FindAllUsersUseCase {
     private final UserRepository userRepository;
 
-    public FindUserByBirthService(UserRepository userRepository) {
+    public FindAllUsersService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @Override
-    public UserResponse findUserByBirth(Date date) {
-        return userRepository.findUserByBirth(date);
+    public List<UserResponse> findAllUsers() {
+        return userRepository.findAllUsers();
     }
 }

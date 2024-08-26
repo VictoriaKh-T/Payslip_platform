@@ -6,5 +6,6 @@ CREATE TABLE IF NOT EXISTS public.users
     surname VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     date_birth DATE,
+    employee_id varchar NOT NULL,
     CONSTRAINT user_pk PRIMARY KEY (id)
     );

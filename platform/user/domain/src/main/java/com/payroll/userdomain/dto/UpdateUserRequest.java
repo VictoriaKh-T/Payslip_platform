@@ -1,7 +1,7 @@
 package com.payroll.userdomain.dto;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public record UpdateUserRequest(
-        String email, String first_name, String second_name, String surname, LocalDate birth_date) {
+        String email, String firstName, String secondName, String surname, Date birthDate) {
 }
