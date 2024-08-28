@@ -36,7 +36,7 @@ public class OrganizationAdapter implements OrganizationRepository {
             .orElseThrow(
                 () ->
                     new OrganizationNotFoundException(
-                        "can`t find organization by id" + organizationId.organizationId()));
+                        "can`t find organization by id " + organizationId.organizationId()));
     return mapper.mapToResponse(organization);
   }
 
