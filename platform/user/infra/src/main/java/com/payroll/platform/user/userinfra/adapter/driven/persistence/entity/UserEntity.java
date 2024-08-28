@@ -5,6 +5,8 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.Set;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -27,8 +29,15 @@ public class UserEntity {
   private String secondName;
   @NotNull private String surname;
   @NonNull private Date date;
-  @Enumerated(EnumType.STRING)
-  private Role role = Role.USER;
+
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(
+          name = "user_roles",
+          joinColumns = @JoinColumn(name = "user_id"),
+          inverseJoinColumns = @JoinColumn(name = "role_name")
+  )
+  private Set<Role> roles = Set.of(Role.USER);
+
   @Column(nullable = false)
   private boolean isDelete = false;
 }

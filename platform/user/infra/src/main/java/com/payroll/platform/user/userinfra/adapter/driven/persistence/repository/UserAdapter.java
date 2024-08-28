@@ -7,6 +7,7 @@ import com.payroll.platform.user.userdomain.dto.CreateUserResponse;
 import com.payroll.platform.user.userdomain.dto.UpdateUserRequest;
 import com.payroll.platform.user.userdomain.dto.UpdateUserResponse;
 import com.payroll.platform.user.userdomain.dto.UserResponse;
+import com.payroll.platform.user.userinfra.adapter.driven.persistence.entity.Role;
 import com.payroll.platform.user.userinfra.adapter.driven.persistence.entity.UserEntity;
 import com.payroll.platform.user.userinfra.exeption.UserNotFoundException;
 import com.payroll.platform.user.userinfra.mapper.UserEntity2Dto;
@@ -14,6 +15,7 @@ import com.payroll.platform.user.userinfra.mapper.UserEntityToCreateDtoMapper;
 import com.payroll.platform.user.userinfra.mapper.UserEntityToUpdateDtoMapper;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Adapter
 public class UserAdapter implements UserRepository {
@@ -42,6 +44,7 @@ public class UserAdapter implements UserRepository {
     user.setSurname(request.surname());
     user.setFirstName(request.firstName());
     user.setSecondName(request.secondName());
+    user.setRoles(Set.of(Role.valueOf(request.role())));
     return updateMapper.mapToUserUpdateResponse(user);
   }
 
