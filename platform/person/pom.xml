@@ -9,7 +9,7 @@
   </parent>
 
   <groupId>com.hrm.platform</groupId>
-  <artifactId>user</artifactId>
+  <artifactId>person</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 

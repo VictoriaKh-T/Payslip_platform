@@ -3,21 +3,23 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.hrm.platform</groupId>
-    <artifactId>user</artifactId>
+    <artifactId>person</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>user-domain</artifactId>
+  <artifactId>person-boot</artifactId>
 
   <dependencies>
     <dependency>
-      <groupId>jakarta.validation</groupId>
-      <artifactId>jakarta.validation-api</artifactId>
+      <groupId>com.hrm.platform</groupId>
+      <artifactId>person-infra</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
     </dependency>
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-beans</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-autoconfigure</artifactId>
     </dependency>
+
   </dependencies>
 
 </project>

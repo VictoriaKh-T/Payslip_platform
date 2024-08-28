@@ -3,16 +3,16 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.hrm.platform</groupId>
-    <artifactId>user</artifactId>
+    <artifactId>person</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>user-infra</artifactId>
+  <artifactId>person-infra</artifactId>
 
   <dependencies>
     <dependency>
       <groupId>com.hrm.platform</groupId>
-      <artifactId>user-app</artifactId>
+      <artifactId>person-app</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
 
