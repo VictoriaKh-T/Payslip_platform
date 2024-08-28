@@ -27,4 +27,8 @@ public class UserEntity {
   private String secondName;
   @NotNull private String surname;
   @NonNull private Date date;
+  @Enumerated(EnumType.STRING)
+  private Role role = Role.USER;
+  @Column(nullable = false)
+  private boolean isDelete = false;
 }

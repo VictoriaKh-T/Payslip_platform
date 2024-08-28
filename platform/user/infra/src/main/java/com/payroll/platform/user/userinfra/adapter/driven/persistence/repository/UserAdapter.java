@@ -19,7 +19,6 @@ import java.util.List;
 public class UserAdapter implements UserRepository {
   private final UserPostgresRepository repository;
   private final UserEntityToCreateDtoMapper createMapper = UserEntityToCreateDtoMapper.INSTANCE;
-
   private final UserEntityToUpdateDtoMapper updateMapper = UserEntityToUpdateDtoMapper.INSTANCE;
   private final UserEntity2Dto mapper = UserEntity2Dto.INSTANCE;
 
@@ -52,7 +51,7 @@ public class UserAdapter implements UserRepository {
         repository
             .findById(userId)
             .orElseThrow(() -> new UserNotFoundException("can`t find user by id " + userId));
-    repository.delete(user);
+    user.setDelete(true);
   }
 
   @Override
