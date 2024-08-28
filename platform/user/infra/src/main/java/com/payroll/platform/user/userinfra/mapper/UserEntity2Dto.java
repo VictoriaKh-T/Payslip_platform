@@ -8,8 +8,7 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public interface UserEntity2Dto {
 
-    UserEntity2Dto INSTANCE =
-            Mappers.getMapper(UserEntity2Dto.class);
+  UserEntity2Dto INSTANCE = Mappers.getMapper(UserEntity2Dto.class);
 
-    UserResponse mapToUserResponse(UserEntity entity);
+  UserResponse mapToUserResponse(UserEntity entity);
 }

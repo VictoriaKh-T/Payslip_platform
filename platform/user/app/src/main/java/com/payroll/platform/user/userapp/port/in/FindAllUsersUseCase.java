@@ -4,5 +4,5 @@ import com.payroll.platform.user.userdomain.dto.UserResponse;
 import java.util.List;
 
 public interface FindAllUsersUseCase {
-    List<UserResponse> findAllUsers();
+  List<UserResponse> findAllUsers();
 }

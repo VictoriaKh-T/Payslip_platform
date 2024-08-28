@@ -6,14 +6,14 @@ import com.payroll.platform.user.userapp.port.out.persistence.UserRepository;
 
 @UseCase
 public class DeleteUserService implements DeleteUserUseCase {
-    private final UserRepository userRepository;
+  private final UserRepository userRepository;
 
-    public DeleteUserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+  public DeleteUserService(UserRepository userRepository) {
+    this.userRepository = userRepository;
+  }
 
-    @Override
-    public void deleteUserById(Long id) {
-        userRepository.deleteUserById(id);
-    }
+  @Override
+  public void deleteUserById(Long id) {
+    userRepository.deleteUserById(id);
+  }
 }

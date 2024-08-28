@@ -9,14 +9,14 @@ import com.payroll.platform.user.userdomain.dto.CreateUserResponse;
 @UseCase
 public class CreateUserService implements CreateUserUseCase {
 
-    private final UserRepository userRepository;
+  private final UserRepository userRepository;
 
-    public CreateUserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+  public CreateUserService(UserRepository userRepository) {
+    this.userRepository = userRepository;
+  }
 
-    @Override
-    public CreateUserResponse createUser(CreateUserRequest request) {
-        return userRepository.createUser(request);
-    }
+  @Override
+  public CreateUserResponse createUser(CreateUserRequest request) {
+    return userRepository.createUser(request);
+  }
 }

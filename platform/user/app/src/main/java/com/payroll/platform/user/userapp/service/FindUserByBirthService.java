@@ -9,14 +9,14 @@ import java.util.Date;
 @UseCase
 public class FindUserByBirthService implements FindUserByBirthUseCase {
 
-    private final UserRepository userRepository;
+  private final UserRepository userRepository;
 
-    public FindUserByBirthService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+  public FindUserByBirthService(UserRepository userRepository) {
+    this.userRepository = userRepository;
+  }
 
-    @Override
-    public UserResponse findUserByBirth(Date date) {
-        return userRepository.findUserByBirth(date);
-    }
+  @Override
+  public UserResponse findUserByBirth(Date date) {
+    return userRepository.findUserByBirth(date);
+  }
 }

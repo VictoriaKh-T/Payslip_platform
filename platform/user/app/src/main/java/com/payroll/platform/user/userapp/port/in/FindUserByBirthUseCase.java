@@ -4,5 +4,5 @@ import com.payroll.platform.user.userdomain.dto.UserResponse;
 import java.util.Date;
 
 public interface FindUserByBirthUseCase {
-    UserResponse findUserByBirth(Date date);
+  UserResponse findUserByBirth(Date date);
 }

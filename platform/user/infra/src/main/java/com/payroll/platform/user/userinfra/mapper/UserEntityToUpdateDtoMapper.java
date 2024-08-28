@@ -8,8 +8,7 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public interface UserEntityToUpdateDtoMapper {
 
-    UserEntityToUpdateDtoMapper INSTANCE =
-            Mappers.getMapper(UserEntityToUpdateDtoMapper.class);
+  UserEntityToUpdateDtoMapper INSTANCE = Mappers.getMapper(UserEntityToUpdateDtoMapper.class);
 
-    UpdateUserResponse mapToUserUpdateResponse(UserEntity entity);
+  UpdateUserResponse mapToUserUpdateResponse(UserEntity entity);
 }

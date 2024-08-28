@@ -4,5 +4,5 @@ import com.payroll.platform.user.userdomain.dto.CreateUserRequest;
 import com.payroll.platform.user.userdomain.dto.CreateUserResponse;
 
 public interface CreateUserUseCase {
-    CreateUserResponse createUser(CreateUserRequest request);
+  CreateUserResponse createUser(CreateUserRequest request);
 }

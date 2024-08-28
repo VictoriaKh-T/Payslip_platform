@@ -7,14 +7,14 @@ import com.payroll.platform.user.userdomain.dto.UserResponse;
 
 @UseCase
 public class FindUserByEmailService implements FindUserByEmailUseCase {
-    private final UserRepository userRepository;
+  private final UserRepository userRepository;
 
-    public FindUserByEmailService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+  public FindUserByEmailService(UserRepository userRepository) {
+    this.userRepository = userRepository;
+  }
 
-    @Override
-    public UserResponse findUserByEmail(String email) {
-        return userRepository.findUserByEmail(email);
-    }
+  @Override
+  public UserResponse findUserByEmail(String email) {
+    return userRepository.findUserByEmail(email);
+  }
 }

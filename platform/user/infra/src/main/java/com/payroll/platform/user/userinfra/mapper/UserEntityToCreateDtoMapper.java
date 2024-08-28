@@ -9,11 +9,9 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public interface UserEntityToCreateDtoMapper {
 
-    UserEntityToCreateDtoMapper INSTANCE =
-            Mappers.getMapper(UserEntityToCreateDtoMapper.class);
+  UserEntityToCreateDtoMapper INSTANCE = Mappers.getMapper(UserEntityToCreateDtoMapper.class);
 
-    UserEntity mapToEntity(CreateUserRequest request);
-    CreateUserResponse mapToCreateResponse(UserEntity entity);
+  UserEntity mapToEntity(CreateUserRequest request);
 
-
+  CreateUserResponse mapToCreateResponse(UserEntity entity);
 }
