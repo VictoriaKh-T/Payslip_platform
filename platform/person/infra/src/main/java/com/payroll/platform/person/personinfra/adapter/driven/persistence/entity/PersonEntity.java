@@ -4,7 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
-import java.util.Date;
+
+import java.time.LocalDate;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -26,7 +27,7 @@ public class PersonEntity {
   @NotNull private String firstName;
   private String secondName;
   @NotNull private String surname;
-  @NonNull private Date date;
+  @NonNull private LocalDate date;
 
   @Column(nullable = false)
   private boolean isDelete = false;

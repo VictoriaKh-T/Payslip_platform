@@ -12,7 +12,8 @@ import com.payroll.platform.person.userdomain.dto.CreatePersonResponse;
 import com.payroll.platform.person.userdomain.dto.PersonResponse;
 import com.payroll.platform.person.userdomain.dto.UpdatePersonRequest;
 import com.payroll.platform.person.userdomain.dto.UpdatePersonResponse;
-import java.util.Date;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @Adapter
@@ -56,7 +57,7 @@ public class PersonAdapter implements PersonRepository {
   }
 
   @Override
-  public PersonResponse findPersonByBirth(Date date) {
+  public PersonResponse findPersonByBirth(LocalDate date) {
     PersonEntity user =
         repository
             .findUserEntityByDate(date)

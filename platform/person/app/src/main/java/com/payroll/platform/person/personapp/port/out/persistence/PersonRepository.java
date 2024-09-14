@@ -5,7 +5,7 @@ import com.payroll.platform.person.userdomain.dto.CreatePersonResponse;
 import com.payroll.platform.person.userdomain.dto.PersonResponse;
 import com.payroll.platform.person.userdomain.dto.UpdatePersonRequest;
 import com.payroll.platform.person.userdomain.dto.UpdatePersonResponse;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface PersonRepository {
@@ -15,7 +15,7 @@ public interface PersonRepository {
 
   void deletePersonById(Long id);
 
-  PersonResponse findPersonByBirth(Date date);
+  PersonResponse findPersonByBirth(LocalDate date);
 
   PersonResponse findPersonByEmail(String email);
 

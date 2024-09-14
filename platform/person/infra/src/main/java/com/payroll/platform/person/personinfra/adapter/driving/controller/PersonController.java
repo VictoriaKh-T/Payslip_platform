@@ -12,7 +12,7 @@ import com.payroll.platform.person.userdomain.dto.PersonResponse;
 import com.payroll.platform.person.userdomain.dto.UpdatePersonRequest;
 import com.payroll.platform.person.userdomain.dto.UpdatePersonResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -51,7 +51,7 @@ public class PersonController {
 
   @GetMapping("/findByDate")
   @Tag(name = "Get persons", description = "This endpoint get person by birth date")
-  public PersonResponse findByDate(@RequestParam Date date) {
+  public PersonResponse findByDate(@RequestParam LocalDate date) {
     return findPersonByBirthUseCase.findPersonByBirth(date);
   }
 
