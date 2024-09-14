@@ -4,7 +4,6 @@ import com.payroll.platform.hexagonal.annotations.UseCase;
 import com.payroll.platform.person.personapp.port.in.FindPersonByBirthUseCase;
 import com.payroll.platform.person.personapp.port.out.persistence.PersonRepository;
 import com.payroll.platform.person.persondomain.dto.PersonResponse;
-
 import java.time.LocalDate;
 
 @UseCase
