@@ -10,12 +10,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 @Entity
 @Data
 @SQLDelete(sql = "UPDATE persons SET is_delete = true WHERE id = ?")
 @Table(name = "persons")
 @NoArgsConstructor
+@Where(clause = "is_delete = false")
 public class PersonEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
