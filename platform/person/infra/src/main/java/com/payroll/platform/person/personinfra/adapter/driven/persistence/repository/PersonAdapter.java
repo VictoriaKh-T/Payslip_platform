@@ -2,17 +2,17 @@ package com.payroll.platform.person.personinfra.adapter.driven.persistence.repos
 
 import com.payroll.platform.hexagonal.annotations.Adapter;
 import com.payroll.platform.person.personapp.port.out.persistence.PersonRepository;
+import com.payroll.platform.person.persondomain.dto.CreatePersonRequest;
+import com.payroll.platform.person.persondomain.dto.CreatePersonResponse;
+import com.payroll.platform.person.persondomain.dto.PersonResponse;
+import com.payroll.platform.person.persondomain.dto.UpdatePersonRequest;
+import com.payroll.platform.person.persondomain.dto.UpdatePersonResponse;
 import com.payroll.platform.person.personinfra.adapter.driven.persistence.entity.PersonEntity;
 import com.payroll.platform.person.personinfra.exeption.PersonNotFoundException;
 import com.payroll.platform.person.personinfra.mapper.PersonEntity2Dto;
 import com.payroll.platform.person.personinfra.mapper.PersonEntityToCreateDtoMapper;
 import com.payroll.platform.person.personinfra.mapper.PersonEntityToUpdateDtoMapper;
-import com.payroll.platform.person.userdomain.dto.CreatePersonRequest;
-import com.payroll.platform.person.userdomain.dto.CreatePersonResponse;
-import com.payroll.platform.person.userdomain.dto.PersonResponse;
-import com.payroll.platform.person.userdomain.dto.UpdatePersonRequest;
-import com.payroll.platform.person.userdomain.dto.UpdatePersonResponse;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Adapter
@@ -33,43 +33,43 @@ public class PersonAdapter implements PersonRepository {
 
   @Override
   public UpdatePersonResponse updatePerson(Long userId, UpdatePersonRequest request) {
-    PersonEntity user =
+    PersonEntity person =
         repository
             .findById(userId)
-            .orElseThrow(() -> new PersonNotFoundException("can`t find user by id " + userId));
-    user.setDate(request.birthDate());
-    user.setEmail(request.email());
-    user.setSurname(request.surname());
-    user.setFirstName(request.firstName());
-    user.setSecondName(request.secondName());
-    return updateMapper.mapToPersonUpdateResponse(user);
+            .orElseThrow(() -> new PersonNotFoundException("can`t find person by id " + userId));
+    person.setBirthDate(request.birthDate());
+    person.setEmail(request.email());
+    person.setSurname(request.surname());
+    person.setFirstName(request.firstName());
+    person.setSecondName(request.secondName());
+    return updateMapper.mapToPersonUpdateResponse(repository.save(person));
   }
 
   @Override
-  public void deletePersonById(Long userId) {
-    PersonEntity user =
+  public void deletePersonById(Long id) {
+    PersonEntity person =
         repository
-            .findById(userId)
-            .orElseThrow(() -> new PersonNotFoundException("can`t find user by id " + userId));
-    user.setDelete(true);
+            .findById(id)
+            .orElseThrow(() -> new PersonNotFoundException("can`t find person by id " + id));
+    person.setDelete(true);
   }
 
   @Override
-  public PersonResponse findPersonByBirth(Date date) {
-    PersonEntity user =
+  public PersonResponse findPersonByBirth(LocalDate birthDate) {
+    PersonEntity person =
         repository
-            .findUserEntityByDate(date)
-            .orElseThrow(() -> new PersonNotFoundException("user not found"));
-    return mapper.mapToUserResponse(user);
+            .findUserEntityByBirthDate(birthDate)
+            .orElseThrow(() -> new PersonNotFoundException("person not found"));
+    return mapper.mapToUserResponse(person);
   }
 
   @Override
   public PersonResponse findPersonByEmail(String email) {
-    PersonEntity user =
+    PersonEntity person =
         repository
             .findUserEntityByEmail(email)
-            .orElseThrow(() -> new PersonNotFoundException("user not found"));
-    return mapper.mapToUserResponse(user);
+            .orElseThrow(() -> new PersonNotFoundException("person not found"));
+    return mapper.mapToUserResponse(person);
   }
 
   @Override

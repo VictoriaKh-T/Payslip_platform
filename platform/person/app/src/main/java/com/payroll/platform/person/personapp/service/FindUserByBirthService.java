@@ -3,8 +3,8 @@ package com.payroll.platform.person.personapp.service;
 import com.payroll.platform.hexagonal.annotations.UseCase;
 import com.payroll.platform.person.personapp.port.in.FindPersonByBirthUseCase;
 import com.payroll.platform.person.personapp.port.out.persistence.PersonRepository;
-import com.payroll.platform.person.userdomain.dto.PersonResponse;
-import java.util.Date;
+import com.payroll.platform.person.persondomain.dto.PersonResponse;
+import java.time.LocalDate;
 
 @UseCase
 public class FindUserByBirthService implements FindPersonByBirthUseCase {
@@ -16,7 +16,7 @@ public class FindUserByBirthService implements FindPersonByBirthUseCase {
   }
 
   @Override
-  public PersonResponse findPersonByBirth(Date date) {
-    return personRepository.findPersonByBirth(date);
+  public PersonResponse findPersonByBirth(LocalDate birthDate) {
+    return personRepository.findPersonByBirth(birthDate);
   }
 }
