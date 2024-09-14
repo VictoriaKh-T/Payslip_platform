@@ -9,9 +9,11 @@ import java.time.LocalDate;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.hibernate.annotations.SQLDelete;
 
 @Entity
 @Data
+@SQLDelete(sql = "UPDATE persons SET is_delete = true WHERE id = ?")
 @Table(name = "persons")
 @NoArgsConstructor
 public class PersonEntity {

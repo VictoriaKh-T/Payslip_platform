@@ -7,11 +7,11 @@ import com.payroll.platform.person.personinfra.exeption.PersonNotFoundException;
 import com.payroll.platform.person.personinfra.mapper.PersonEntity2Dto;
 import com.payroll.platform.person.personinfra.mapper.PersonEntityToCreateDtoMapper;
 import com.payroll.platform.person.personinfra.mapper.PersonEntityToUpdateDtoMapper;
-import com.payroll.platform.person.userdomain.dto.CreatePersonRequest;
-import com.payroll.platform.person.userdomain.dto.CreatePersonResponse;
-import com.payroll.platform.person.userdomain.dto.PersonResponse;
-import com.payroll.platform.person.userdomain.dto.UpdatePersonRequest;
-import com.payroll.platform.person.userdomain.dto.UpdatePersonResponse;
+import com.payroll.platform.person.persondomain.dto.CreatePersonRequest;
+import com.payroll.platform.person.persondomain.dto.CreatePersonResponse;
+import com.payroll.platform.person.persondomain.dto.PersonResponse;
+import com.payroll.platform.person.persondomain.dto.UpdatePersonRequest;
+import com.payroll.platform.person.persondomain.dto.UpdatePersonResponse;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -34,16 +34,16 @@ public class PersonAdapter implements PersonRepository {
 
   @Override
   public UpdatePersonResponse updatePerson(Long userId, UpdatePersonRequest request) {
-    PersonEntity user =
+    PersonEntity person =
         repository
             .findById(userId)
-            .orElseThrow(() -> new PersonNotFoundException("can`t find user by id " + userId));
-    user.setDate(request.birthDate());
-    user.setEmail(request.email());
-    user.setSurname(request.surname());
-    user.setFirstName(request.firstName());
-    user.setSecondName(request.secondName());
-    return updateMapper.mapToPersonUpdateResponse(user);
+            .orElseThrow(() -> new PersonNotFoundException("can`t find person by id " + userId));
+    person.setDate(request.birthDate());
+    person.setEmail(request.email());
+    person.setSurname(request.surname());
+    person.setFirstName(request.firstName());
+    person.setSecondName(request.secondName());
+    return updateMapper.mapToPersonUpdateResponse(repository.save(person));
   }
 
   @Override

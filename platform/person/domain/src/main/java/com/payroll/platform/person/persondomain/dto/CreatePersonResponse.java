@@ -1,4 +1,4 @@
-package com.payroll.platform.person.userdomain.dto;
+package com.payroll.platform.person.persondomain.dto;
 
 import java.time.LocalDate;
 

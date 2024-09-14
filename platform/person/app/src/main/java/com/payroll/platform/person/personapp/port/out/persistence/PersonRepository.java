@@ -1,10 +1,10 @@
 package com.payroll.platform.person.personapp.port.out.persistence;
 
-import com.payroll.platform.person.userdomain.dto.CreatePersonRequest;
-import com.payroll.platform.person.userdomain.dto.CreatePersonResponse;
-import com.payroll.platform.person.userdomain.dto.PersonResponse;
-import com.payroll.platform.person.userdomain.dto.UpdatePersonRequest;
-import com.payroll.platform.person.userdomain.dto.UpdatePersonResponse;
+import com.payroll.platform.person.persondomain.dto.CreatePersonRequest;
+import com.payroll.platform.person.persondomain.dto.CreatePersonResponse;
+import com.payroll.platform.person.persondomain.dto.PersonResponse;
+import com.payroll.platform.person.persondomain.dto.UpdatePersonRequest;
+import com.payroll.platform.person.persondomain.dto.UpdatePersonResponse;
 import java.time.LocalDate;
 import java.util.List;
 
