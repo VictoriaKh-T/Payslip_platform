@@ -12,7 +12,6 @@ import com.payroll.platform.person.persondomain.dto.CreatePersonResponse;
 import com.payroll.platform.person.persondomain.dto.PersonResponse;
 import com.payroll.platform.person.persondomain.dto.UpdatePersonRequest;
 import com.payroll.platform.person.persondomain.dto.UpdatePersonResponse;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -38,7 +37,7 @@ public class PersonAdapter implements PersonRepository {
         repository
             .findById(userId)
             .orElseThrow(() -> new PersonNotFoundException("can`t find person by id " + userId));
-    person.setDate(request.birthDate());
+    person.setBirthDate(request.birthDate());
     person.setEmail(request.email());
     person.setSurname(request.surname());
     person.setFirstName(request.firstName());
@@ -47,31 +46,31 @@ public class PersonAdapter implements PersonRepository {
   }
 
   @Override
-  public void deletePersonById(Long userId) {
-    PersonEntity user =
+  public void deletePersonById(Long id) {
+    PersonEntity person =
         repository
-            .findById(userId)
-            .orElseThrow(() -> new PersonNotFoundException("can`t find user by id " + userId));
-    user.setDelete(true);
-    repository.save(user);
+            .findById(id)
+            .orElseThrow(() -> new PersonNotFoundException("can`t find person by id " + id));
+    person.setDelete(true);
+    repository.save(person);
   }
 
   @Override
-  public PersonResponse findPersonByBirth(LocalDate date) {
-    PersonEntity user =
+  public PersonResponse findPersonByBirth(LocalDate birthDate) {
+    PersonEntity person =
         repository
-            .findUserEntityByDate(date)
-            .orElseThrow(() -> new PersonNotFoundException("user not found"));
-    return mapper.mapToUserResponse(user);
+            .findUserEntityByBirthDate(birthDate)
+            .orElseThrow(() -> new PersonNotFoundException("person not found"));
+    return mapper.mapToUserResponse(person);
   }
 
   @Override
   public PersonResponse findPersonByEmail(String email) {
-    PersonEntity user =
+    PersonEntity person =
         repository
             .findUserEntityByEmail(email)
-            .orElseThrow(() -> new PersonNotFoundException("user not found"));
-    return mapper.mapToUserResponse(user);
+            .orElseThrow(() -> new PersonNotFoundException("person not found"));
+    return mapper.mapToUserResponse(person);
   }
 
   @Override

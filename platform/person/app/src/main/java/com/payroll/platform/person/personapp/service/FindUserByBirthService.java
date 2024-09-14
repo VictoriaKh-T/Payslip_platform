@@ -17,7 +17,7 @@ public class FindUserByBirthService implements FindPersonByBirthUseCase {
   }
 
   @Override
-  public PersonResponse findPersonByBirth(LocalDate date) {
-    return personRepository.findPersonByBirth(date);
+  public PersonResponse findPersonByBirth(LocalDate birthDate) {
+    return personRepository.findPersonByBirth(birthDate);
   }
 }

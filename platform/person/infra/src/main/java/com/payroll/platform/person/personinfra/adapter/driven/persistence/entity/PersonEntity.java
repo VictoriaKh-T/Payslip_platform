@@ -29,7 +29,7 @@ public class PersonEntity {
   @NotNull private String firstName;
   private String secondName;
   @NotNull private String surname;
-  @NonNull private LocalDate date;
+  @NonNull private LocalDate birthDate;
 
   @Column(nullable = false)
   private boolean isDelete = false;
