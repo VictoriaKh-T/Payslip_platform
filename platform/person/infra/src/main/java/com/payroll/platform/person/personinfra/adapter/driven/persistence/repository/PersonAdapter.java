@@ -52,6 +52,7 @@ public class PersonAdapter implements PersonRepository {
             .findById(userId)
             .orElseThrow(() -> new PersonNotFoundException("can`t find user by id " + userId));
     user.setDelete(true);
+    repository.save(user);
   }
 
   @Override
