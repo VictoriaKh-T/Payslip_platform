@@ -32,11 +32,11 @@ public class PersonAdapter implements PersonRepository {
   }
 
   @Override
-  public UpdatePersonResponse updatePerson(Long userId, UpdatePersonRequest request) {
+  public UpdatePersonResponse updatePerson(Long personId, UpdatePersonRequest request) {
     PersonEntity person =
         repository
-            .findById(userId)
-            .orElseThrow(() -> new PersonNotFoundException("can`t find person by id " + userId));
+            .findById(personId)
+            .orElseThrow(() -> new PersonNotFoundException("can`t find person by id " + personId));
     person.setBirthDate(request.birthDate());
     person.setEmail(request.email());
     person.setSurname(request.surname());

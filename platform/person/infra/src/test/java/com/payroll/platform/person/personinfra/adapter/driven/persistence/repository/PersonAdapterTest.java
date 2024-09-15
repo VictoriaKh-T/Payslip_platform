@@ -62,7 +62,8 @@ class PersonAdapterTest {
     }
 
     @Test
-    public void updatePerson() {
+    public void findPersonByIdOk() {
+
     }
 
     @Test
