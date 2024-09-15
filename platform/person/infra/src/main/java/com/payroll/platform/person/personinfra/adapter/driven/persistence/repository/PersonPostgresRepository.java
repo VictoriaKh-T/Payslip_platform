@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PersonPostgresRepository extends JpaRepository<PersonEntity, Long> {
 
-  Optional<PersonEntity> findUserEntityByBirthDate(LocalDate bitrhDate);
+  Optional<PersonEntity> findPersonEntityByBirthDate(LocalDate bitrhDate);
 
-  Optional<PersonEntity> findUserEntityByEmail(String email);
+  Optional<PersonEntity> findPersonEntityByEmail(String email);
 }

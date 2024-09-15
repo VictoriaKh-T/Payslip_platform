@@ -17,6 +17,8 @@ public interface PersonRepository {
 
   PersonResponse findPersonByBirth(LocalDate date);
 
+  PersonResponse findPersonById(Long id);
+
   PersonResponse findPersonByEmail(String email);
 
   List<PersonResponse> findAllPersons();
