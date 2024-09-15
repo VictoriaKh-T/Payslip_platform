@@ -58,9 +58,9 @@ public class PersonAdapter implements PersonRepository {
   public PersonResponse findPersonByBirth(LocalDate birthDate) {
     PersonEntity person =
         repository
-            .findUserEntityByBirthDate(birthDate)
+            .findPersonEntityByBirthDate(birthDate)
             .orElseThrow(() -> new PersonNotFoundException("person not found"));
-    return mapper.mapToUserResponse(person);
+    return mapper.mapToPersonResponse(person);
   }
 
   @Override
@@ -69,20 +69,20 @@ public class PersonAdapter implements PersonRepository {
             repository
                     .findById(userId)
                     .orElseThrow(() -> new PersonNotFoundException("can`t find person by id " + userId));
-    return mapper.mapToUserResponse(person);
+    return mapper.mapToPersonResponse(person);
   }
 
   @Override
   public PersonResponse findPersonByEmail(String email) {
     PersonEntity person =
         repository
-            .findUserEntityByEmail(email)
+            .findPersonEntityByEmail(email)
             .orElseThrow(() -> new PersonNotFoundException("person not found"));
-    return mapper.mapToUserResponse(person);
+    return mapper.mapToPersonResponse(person);
   }
 
   @Override
   public List<PersonResponse> findAllPersons() {
-    return repository.findAll().stream().map(mapper::mapToUserResponse).toList();
+    return repository.findAll().stream().map(mapper::mapToPersonResponse).toList();
   }
 }

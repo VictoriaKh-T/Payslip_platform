@@ -10,5 +10,5 @@ public interface PersonEntity2Dto {
 
   PersonEntity2Dto INSTANCE = Mappers.getMapper(PersonEntity2Dto.class);
 
-  PersonResponse mapToUserResponse(PersonEntity entity);
+  PersonResponse mapToPersonResponse(PersonEntity entity);
 }
