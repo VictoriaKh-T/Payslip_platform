@@ -5,6 +5,7 @@ import com.payroll.platform.person.personapp.port.in.DeletePersonUseCase;
 import com.payroll.platform.person.personapp.port.in.FindAllPersonsUseCase;
 import com.payroll.platform.person.personapp.port.in.FindPersonByBirthUseCase;
 import com.payroll.platform.person.personapp.port.in.FindPersonByEmailUseCase;
+import com.payroll.platform.person.personapp.port.in.FindPersonByIdUseCase;
 import com.payroll.platform.person.personapp.port.in.UpdatePersonUseCase;
 import com.payroll.platform.person.persondomain.dto.CreatePersonRequest;
 import com.payroll.platform.person.persondomain.dto.CreatePersonResponse;
@@ -36,6 +37,7 @@ public class PersonController {
   private final FindPersonByBirthUseCase findPersonByBirthUseCase;
   private final FindPersonByEmailUseCase findPersonByEmailUseCase;
   private final FindAllPersonsUseCase findAllPersonsUseCase;
+  private final FindPersonByIdUseCase findPersonByIdUseCase;
 
   @GetMapping
   @Tag(name = "Get persons", description = "This endpoint get all persons")
@@ -43,10 +45,17 @@ public class PersonController {
     return findAllPersonsUseCase.findAllPersons();
   }
 
+
   @GetMapping("/findByEmail")
   @Tag(name = "Get persons", description = "This endpoint get person by email")
   public PersonResponse findPersonByEmail(@RequestParam String email) {
     return findPersonByEmailUseCase.findPersonByEmail(email);
+  }
+
+  @GetMapping("/{id}")
+  @Tag(name = "Get persons", description = "This endpoint get person by id")
+  public PersonResponse findPersonById(@PathVariable Long id) {
+    return findPersonByIdUseCase.findPersonById(id);
   }
 
   @GetMapping("/findByDate")
