@@ -8,14 +8,14 @@ import com.payroll.platform.person.persondomain.dto.PersonResponse;
 @UseCase
 public class FindPersonByIdService implements FindPersonByIdUseCase {
 
-    private final PersonRepository personRepository;
+  private final PersonRepository personRepository;
 
-    public FindPersonByIdService(PersonRepository personRepository) {
-        this.personRepository = personRepository;
-    }
+  public FindPersonByIdService(PersonRepository personRepository) {
+    this.personRepository = personRepository;
+  }
 
-    @Override
-    public PersonResponse findPersonById(Long id) {
-        return personRepository.findPersonById(id);
-    }
+  @Override
+  public PersonResponse findPersonById(Long id) {
+    return personRepository.findPersonById(id);
+  }
 }

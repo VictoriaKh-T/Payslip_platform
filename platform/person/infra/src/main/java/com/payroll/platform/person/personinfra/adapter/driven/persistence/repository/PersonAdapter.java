@@ -66,9 +66,9 @@ public class PersonAdapter implements PersonRepository {
   @Override
   public PersonResponse findPersonById(Long userId) {
     PersonEntity person =
-            repository
-                    .findById(userId)
-                    .orElseThrow(() -> new PersonNotFoundException("can`t find person by id " + userId));
+        repository
+            .findById(userId)
+            .orElseThrow(() -> new PersonNotFoundException("can`t find person by id " + userId));
     return mapper.mapToPersonResponse(person);
   }
 

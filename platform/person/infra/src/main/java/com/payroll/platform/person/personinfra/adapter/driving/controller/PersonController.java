@@ -45,7 +45,6 @@ public class PersonController {
     return findAllPersonsUseCase.findAllPersons();
   }
 
-
   @GetMapping("/findByEmail")
   @Tag(name = "Get persons", description = "This endpoint get person by email")
   public PersonResponse findPersonByEmail(@RequestParam String email) {
