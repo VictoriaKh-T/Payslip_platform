@@ -15,7 +15,8 @@ public class FindOrganizationByKodService implements FindOrganizationByKodUseCas
   }
 
   @Override
-  public OrganizationResponse findOrganizationByKodUseCase(FindOrganizationByKodRequest organizationKod) {
+  public OrganizationResponse findOrganizationByKodUseCase(
+      FindOrganizationByKodRequest organizationKod) {
     return organizationRepository.findByOrganizationKod(organizationKod);
   }
 }

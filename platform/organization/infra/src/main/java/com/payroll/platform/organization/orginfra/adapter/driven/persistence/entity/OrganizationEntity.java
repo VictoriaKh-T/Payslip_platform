@@ -31,6 +31,7 @@ public class OrganizationEntity {
   private String address;
   private String telephoneNumber;
   private String description;
+
   @Column(nullable = false)
   private boolean isDelete = false;
 }

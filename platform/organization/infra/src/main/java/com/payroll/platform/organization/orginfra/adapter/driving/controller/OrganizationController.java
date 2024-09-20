@@ -53,7 +53,8 @@ public class OrganizationController {
   @Tag(
       name = "Get organization",
       description = "This endpoint get an organization by organization_kod")
-  public OrganizationResponse findOrganizationByKod(@RequestBody FindOrganizationByKodRequest organizationKod) {
+  public OrganizationResponse findOrganizationByKod(
+      @RequestBody FindOrganizationByKodRequest organizationKod) {
     return findOrganizationByKod.findOrganizationByKodUseCase(organizationKod);
   }
 
