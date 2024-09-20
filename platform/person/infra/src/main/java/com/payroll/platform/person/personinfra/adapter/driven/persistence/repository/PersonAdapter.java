@@ -47,11 +47,7 @@ public class PersonAdapter implements PersonRepository {
 
   @Override
   public void deletePersonById(Long id) {
-    PersonEntity person =
-        repository
-            .findById(id)
-            .orElseThrow(() -> new PersonNotFoundException("can`t find person by id " + id));
-    person.setDelete(true);
+    repository.deleteById(id);
   }
 
   @Override
