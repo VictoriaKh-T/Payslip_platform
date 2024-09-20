@@ -3,7 +3,6 @@ package com.payroll.platform.organization.orgapp.service;
 import com.payroll.platform.hexagonal.annotations.UseCase;
 import com.payroll.platform.organization.orgapp.port.in.FindOrganizationByOrganizationIdUseCase;
 import com.payroll.platform.organization.orgapp.port.out.persistence.OrganizationRepository;
-import com.payroll.platform.organization.orgdomain.dto.OrganizationId;
 import com.payroll.platform.organization.orgdomain.dto.OrganizationResponse;
 
 @UseCase
@@ -16,8 +15,7 @@ public class FindOrganizationByIdService implements FindOrganizationByOrganizati
   }
 
   @Override
-  public OrganizationResponse findOrganizationByIdUseCase(Long id) {
-    OrganizationId organizationId = new OrganizationId(id);
+  public OrganizationResponse findOrganizationByIdUseCase(Long organizationId) {
     return organizationRepository.findByOrganizationId(organizationId);
   }
 }

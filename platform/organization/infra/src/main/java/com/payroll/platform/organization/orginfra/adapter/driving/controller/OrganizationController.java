@@ -6,7 +6,7 @@ import com.payroll.platform.organization.orgapp.port.in.FindAllOrganizationsUseC
 import com.payroll.platform.organization.orgapp.port.in.FindOrganizationByKodUseCase;
 import com.payroll.platform.organization.orgapp.port.in.FindOrganizationByOrganizationIdUseCase;
 import com.payroll.platform.organization.orgapp.port.in.UpdateOrganizationByIdUseCase;
-import com.payroll.platform.organization.orgdomain.dto.OrganizationId;
+import com.payroll.platform.organization.orgdomain.dto.FindOrganizationByKodRequest;
 import com.payroll.platform.organization.orgdomain.dto.OrganizationRequest;
 import com.payroll.platform.organization.orgdomain.dto.OrganizationResponse;
 import com.payroll.platform.organization.orgdomain.dto.UpdateOrganizationRequest;
@@ -49,12 +49,13 @@ public class OrganizationController {
     return findOrganizationByOrganizationId.findOrganizationByIdUseCase(id);
   }
 
-  @GetMapping("/{kod}")
+  @GetMapping("/find_by_kod")
   @Tag(
       name = "Get organization",
       description = "This endpoint get an organization by organization_kod")
-  public OrganizationResponse findOrganizationByKod(@PathVariable String kod) {
-    return findOrganizationByKod.findOrganizationByKodUseCase(kod);
+  public OrganizationResponse findOrganizationByKod(
+      @RequestBody FindOrganizationByKodRequest organizationKod) {
+    return findOrganizationByKod.findOrganizationByKodUseCase(organizationKod);
   }
 
   @PostMapping
@@ -72,6 +73,6 @@ public class OrganizationController {
 
   @DeleteMapping("/{id}")
   public void deleteOrganization(@PathVariable Long id) {
-    deleteOrganization.deleteOrganizationById(new OrganizationId(id));
+    deleteOrganization.deleteOrganizationById(id);
   }
 }

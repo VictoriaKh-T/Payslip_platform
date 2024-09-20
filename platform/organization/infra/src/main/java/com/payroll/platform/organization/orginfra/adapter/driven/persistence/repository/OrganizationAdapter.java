@@ -2,7 +2,7 @@ package com.payroll.platform.organization.orginfra.adapter.driven.persistence.re
 
 import com.payroll.platform.hexagonal.annotations.Adapter;
 import com.payroll.platform.organization.orgapp.port.out.persistence.OrganizationRepository;
-import com.payroll.platform.organization.orgdomain.dto.OrganizationId;
+import com.payroll.platform.organization.orgdomain.dto.FindOrganizationByKodRequest;
 import com.payroll.platform.organization.orgdomain.dto.OrganizationRequest;
 import com.payroll.platform.organization.orgdomain.dto.OrganizationResponse;
 import com.payroll.platform.organization.orgdomain.dto.UpdateOrganizationRequest;
@@ -29,26 +29,26 @@ public class OrganizationAdapter implements OrganizationRepository {
   }
 
   @Override
-  public OrganizationResponse findByOrganizationId(OrganizationId organizationId) {
+  public OrganizationResponse findByOrganizationId(Long organizationId) {
     OrganizationEntity organization =
         organizationPostgresRepository
-            .findById(organizationId.organizationId())
+            .findById(organizationId)
             .orElseThrow(
                 () ->
                     new OrganizationNotFoundException(
-                        "can`t find organization by id " + organizationId.organizationId()));
+                        "can`t find organization by id " + organizationId));
     return mapper.mapToResponse(organization);
   }
 
   @Override
-  public OrganizationResponse findByOrganizationKod(String organization_kod) {
+  public OrganizationResponse findByOrganizationKod(FindOrganizationByKodRequest organizationKod) {
     return mapper.mapToResponse(
         organizationPostgresRepository
-            .findByKodOrganization(organization_kod)
+            .findByKodOrganization(organizationKod.organizationKod())
             .orElseThrow(
                 () ->
                     new OrganizationNotFoundException(
-                        "can`t find organization by kod" + organization_kod)));
+                        "can`t find organization by kod" + organizationKod.organizationKod())));
   }
 
   @Override
@@ -69,15 +69,8 @@ public class OrganizationAdapter implements OrganizationRepository {
   }
 
   @Override
-  public void deleteOrganizationById(OrganizationId organizationId) {
-    OrganizationEntity organization =
-        organizationPostgresRepository
-            .findById(organizationId.organizationId())
-            .orElseThrow(
-                () ->
-                    new OrganizationNotFoundException(
-                        "can`t find organization by id" + organizationId.organizationId()));
-    organizationPostgresRepository.delete(organization);
+  public void deleteOrganizationById(Long organizationId) {
+    organizationPostgresRepository.deleteById(organizationId);
   }
 
   @Override

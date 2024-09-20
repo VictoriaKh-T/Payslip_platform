@@ -3,6 +3,7 @@ package com.payroll.platform.organization.orgapp.service;
 import com.payroll.platform.hexagonal.annotations.UseCase;
 import com.payroll.platform.organization.orgapp.port.in.FindOrganizationByKodUseCase;
 import com.payroll.platform.organization.orgapp.port.out.persistence.OrganizationRepository;
+import com.payroll.platform.organization.orgdomain.dto.FindOrganizationByKodRequest;
 import com.payroll.platform.organization.orgdomain.dto.OrganizationResponse;
 
 @UseCase
@@ -14,7 +15,8 @@ public class FindOrganizationByKodService implements FindOrganizationByKodUseCas
   }
 
   @Override
-  public OrganizationResponse findOrganizationByKodUseCase(String organization_kod) {
-    return organizationRepository.findByOrganizationKod(organization_kod);
+  public OrganizationResponse findOrganizationByKodUseCase(
+      FindOrganizationByKodRequest organizationKod) {
+    return organizationRepository.findByOrganizationKod(organizationKod);
   }
 }

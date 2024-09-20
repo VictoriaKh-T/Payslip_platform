@@ -3,7 +3,6 @@ package com.payroll.platform.organization.orgapp.service;
 import com.payroll.platform.hexagonal.annotations.UseCase;
 import com.payroll.platform.organization.orgapp.port.in.DeleteOrganizationUseCase;
 import com.payroll.platform.organization.orgapp.port.out.persistence.OrganizationRepository;
-import com.payroll.platform.organization.orgdomain.dto.OrganizationId;
 
 @UseCase
 public class DeleteOrganizationService implements DeleteOrganizationUseCase {
@@ -15,7 +14,7 @@ public class DeleteOrganizationService implements DeleteOrganizationUseCase {
   }
 
   @Override
-  public void deleteOrganizationById(OrganizationId organizationId) {
+  public void deleteOrganizationById(Long organizationId) {
     organizationRepository.deleteOrganizationById(organizationId);
   }
 }
