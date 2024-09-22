@@ -17,6 +17,6 @@ public class CreateOrganizationService implements CreateOrganizationUseCase {
 
   @Override
   public OrganizationResponse addOrganization(OrganizationRequest request) {
-    return organizationRepository.addOrganization(request);
+    return organizationRepository.createOrganization(request);
   }
 }
