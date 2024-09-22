@@ -31,13 +31,13 @@ class CreateOrganizationServiceTest {
         new OrganizationResponse(
             1L, "ORG001", "Tech1111", "+380122221133", "123 Main St, Cityville");
 
-    when(repository.addOrganization(request)).thenReturn(response);
+    when(repository.createOrganization(request)).thenReturn(response);
 
     OrganizationResponse actualResponse = service.addOrganization(request);
 
     assertNotNull(actualResponse);
     assertEquals(response, actualResponse);
-    verify(repository, times(1)).addOrganization(request);
+    verify(repository, times(1)).createOrganization(request);
   }
 
   @Test
@@ -46,13 +46,13 @@ class CreateOrganizationServiceTest {
         new OrganizationRequest(
             1L, "ORG001", "Tech1111", "+380122221133", "123 Main St, Cityville");
 
-    when(repository.addOrganization(request)).thenThrow(new RuntimeException("Database error"));
+    when(repository.createOrganization(request)).thenThrow(new RuntimeException("Database error"));
 
     // Act & Assert
     Exception exception =
         assertThrows(RuntimeException.class, () -> service.addOrganization(request));
 
     assertEquals("Database error", exception.getMessage());
-    verify(repository, times(1)).addOrganization(request);
+    verify(repository, times(1)).createOrganization(request);
   }
 }

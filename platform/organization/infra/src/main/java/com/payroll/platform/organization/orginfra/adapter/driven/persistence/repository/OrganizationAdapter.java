@@ -22,7 +22,7 @@ public class OrganizationAdapter implements OrganizationRepository {
       OrganizationDtoToOrganizationMapper.INSTANCE;
 
   @Override
-  public OrganizationResponse addOrganization(OrganizationRequest organizationRequest) {
+  public OrganizationResponse createOrganization(OrganizationRequest organizationRequest) {
     OrganizationEntity organization =
         organizationPostgresRepository.save(mapper.mapToEntity(organizationRequest));
     return mapper.mapToResponse(organization);
