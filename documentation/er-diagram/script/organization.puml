@@ -9,14 +9,4 @@ entity "organization" as org {
 * contact: varchar
 * description: varchar
 }
-
-
-entity "employee" as empl {
-* PK: id: varchar
---
-* full name: varchar
-......
-}
-
-org }|--|| empl
 @enduml

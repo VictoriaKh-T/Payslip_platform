@@ -1,27 +1,61 @@
-# Project Name: HRM and Payroll Platform
+# Payslip Platform
 
-# First part: Payslips
+_Payslip Platform_ is a solution  for viewing payslips. 
 
+A microservice architecture was used to develop the platform
 
+This platform is a great addition tool for payroll management.
 
-## Docker resources
+## Project Structure 
+* Payslip_platform
+  * **documentation** -- contains all documentation and diagrams of the project 
+  * **library** -- contains addition library
+  * **platform** -- all microservices each with its own README file for specific setup and instructions:
+     - **authorization** --  handles user authentication and authorization
+     - **employee** -- manages employee data
+     - **organization** -- manages organization data
+     - **payslip** --downloading and viewing payslips
+     - **person** -- manages person data
 
-Postgres DB:
+## Dependencies
+Before installing the program, ensure the following prerequisites are met:
 
-```
-docker run --name postgresDb -e POSTGRES_PASSWORD=admin -p5432:5432 -d postgres:alpine3.19
-```
+* **Java 17+** – required to run the backend microservices.
+* **Maven** – for building the Java project.
+* **Spring Boot** – framework for the backend.
+* **Docker** – for containerizing and deploying the microservices.
+* **PostgreSQL** – used as the primary database. Ensure that the database is created, 
+* and the user has the necessary privileges.
+* **Operating System** – Tested on Windows 11.
 
-For connection to DB via IDE use next credentials:
+Ensure that all necessary environment variables (like database credentials) are properly configured.
 
-host - `localhost`
+## Installing
+To install the project locally, follow these steps:
 
-port - `5432`
+1. Clone the repository to your local machine:
+  ```
+git clone https://github.com/VictoriaKh-T/Payslip_platform
+  ```
+2. Navigate to the project directory:
 
-database - `postgres`
+  ```
+ cd Payslip_platform
+  ```
+ 
+3.  Set up the database:
 
-URL - `jdbc:postgresql://localhost:5432/postgres`
+   * Open the application.properties or application.yml file in your project.
 
-username - `admin`
+   * Set the database connection properties. Replace database_name, your_login, and your_pass with your database settings:
 
-password - `admin`
+   ````
+   spring.datasource.url=jdbc:postgresql://localhost:5432/your-database
+   spring.datasource.username=your-username
+   spring.datasource.password=your-password
+   ````
+4. Build the project using Maven:
+````
+mvn clean install
+
+````
