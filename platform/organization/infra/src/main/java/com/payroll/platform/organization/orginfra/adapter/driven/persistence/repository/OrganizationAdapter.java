@@ -1,7 +1,7 @@
 package com.payroll.platform.organization.orginfra.adapter.driven.persistence.repository;
 
 import com.payroll.platform.hexagonal.annotations.Adapter;
-import com.payroll.platform.organization.orgapp.port.out.persistence.OrganizationRepository;
+import com.payroll.platform.organization.orgapp.port.out.persistence.OrganizationPersistencePort;
 import com.payroll.platform.organization.orgdomain.dto.FindOrganizationByKodRequest;
 import com.payroll.platform.organization.orgdomain.dto.OrganizationRequest;
 import com.payroll.platform.organization.orgdomain.dto.OrganizationResponse;
@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 
 @Adapter
 @RequiredArgsConstructor
-public class OrganizationAdapter implements OrganizationRepository {
+public class OrganizationAdapter implements OrganizationPersistencePort {
 
   private final OrganizationPostgresRepository organizationPostgresRepository;
   private final OrganizationDtoToOrganizationMapper mapper =

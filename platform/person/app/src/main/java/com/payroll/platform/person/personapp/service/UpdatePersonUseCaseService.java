@@ -2,20 +2,20 @@ package com.payroll.platform.person.personapp.service;
 
 import com.payroll.platform.hexagonal.annotations.UseCase;
 import com.payroll.platform.person.personapp.port.in.UpdatePersonUseCase;
-import com.payroll.platform.person.personapp.port.out.persistence.PersonRepository;
+import com.payroll.platform.person.personapp.port.out.persistence.PersonPersistencePort;
 import com.payroll.platform.person.persondomain.dto.UpdatePersonRequest;
 import com.payroll.platform.person.persondomain.dto.UpdatePersonResponse;
 
 @UseCase
-public class UpdatePersonService implements UpdatePersonUseCase {
-  private final PersonRepository personRepository;
+public class UpdatePersonUseCaseService implements UpdatePersonUseCase {
+  private final PersonPersistencePort personPersistencePort;
 
-  public UpdatePersonService(PersonRepository personRepository) {
-    this.personRepository = personRepository;
+  public UpdatePersonUseCaseService(PersonPersistencePort personPersistencePort) {
+    this.personPersistencePort = personPersistencePort;
   }
 
   @Override
   public UpdatePersonResponse updatePersonById(Long id, UpdatePersonRequest request) {
-    return personRepository.updatePerson(id, request);
+    return personPersistencePort.updatePerson(id, request);
   }
 }

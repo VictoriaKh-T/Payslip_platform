@@ -6,7 +6,7 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-import com.payroll.platform.organization.orgapp.port.out.persistence.OrganizationRepository;
+import com.payroll.platform.organization.orgapp.port.out.persistence.OrganizationPersistencePort;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -14,11 +14,11 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class DeleteOrganizationServiceTest {
+class DeleteOrganizationUseCaseServiceTest {
 
-  @Mock private OrganizationRepository repository;
+  @Mock private OrganizationPersistencePort repository;
 
-  @InjectMocks private DeleteOrganizationService service;
+  @InjectMocks private DeleteOrganizationUseCaseService service;
 
   @Test
   void deleteOrganizationById_ShouldCallRepository_WhenValidIdProvided() {

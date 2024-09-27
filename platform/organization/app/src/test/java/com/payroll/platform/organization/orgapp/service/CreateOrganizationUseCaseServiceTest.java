@@ -7,7 +7,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.payroll.platform.organization.orgapp.port.out.persistence.OrganizationRepository;
+import com.payroll.platform.organization.orgapp.port.out.persistence.OrganizationPersistencePort;
 import com.payroll.platform.organization.orgdomain.dto.OrganizationRequest;
 import com.payroll.platform.organization.orgdomain.dto.OrganizationResponse;
 import org.junit.jupiter.api.Test;
@@ -17,10 +17,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class CreateOrganizationServiceTest {
-  @Mock private OrganizationRepository repository;
+class CreateOrganizationUseCaseServiceTest {
+  @Mock private OrganizationPersistencePort repository;
 
-  @InjectMocks private CreateOrganizationService service;
+  @InjectMocks private CreateOrganizationUseCaseService service;
 
   @Test
   void addOrganization_ShouldReturnOrganizationResponse() {

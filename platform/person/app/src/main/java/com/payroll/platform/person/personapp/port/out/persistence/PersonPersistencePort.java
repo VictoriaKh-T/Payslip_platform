@@ -8,7 +8,7 @@ import com.payroll.platform.person.persondomain.dto.UpdatePersonResponse;
 import java.time.LocalDate;
 import java.util.List;
 
-public interface PersonRepository {
+public interface PersonPersistencePort {
   CreatePersonResponse createPerson(CreatePersonRequest request);
 
   UpdatePersonResponse updatePerson(Long id, UpdatePersonRequest request);

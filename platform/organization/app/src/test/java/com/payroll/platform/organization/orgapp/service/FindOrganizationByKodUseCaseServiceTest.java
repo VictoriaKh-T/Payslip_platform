@@ -8,7 +8,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.payroll.platform.organization.orgapp.port.out.persistence.OrganizationRepository;
+import com.payroll.platform.organization.orgapp.port.out.persistence.OrganizationPersistencePort;
 import com.payroll.platform.organization.orgdomain.dto.FindOrganizationByKodRequest;
 import com.payroll.platform.organization.orgdomain.dto.OrganizationResponse;
 import org.junit.jupiter.api.Test;
@@ -18,10 +18,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class FindOrganizationByKodServiceTest {
-  @Mock private OrganizationRepository repository;
+class FindOrganizationByKodUseCaseServiceTest {
+  @Mock private OrganizationPersistencePort repository;
 
-  @InjectMocks private FindOrganizationByKodService service;
+  @InjectMocks private FindOrganizationByKodUseCaseService service;
 
   @Test
   void findOrganizationByKod_ShouldReturnOrganization() {
