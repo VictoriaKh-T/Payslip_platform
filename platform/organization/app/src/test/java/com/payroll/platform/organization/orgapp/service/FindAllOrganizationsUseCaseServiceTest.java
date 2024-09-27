@@ -7,7 +7,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.payroll.platform.organization.orgapp.port.out.persistence.OrganizationRepository;
+import com.payroll.platform.organization.orgapp.port.out.persistence.OrganizationPersistencePort;
 import com.payroll.platform.organization.orgdomain.dto.OrganizationResponse;
 import java.util.Arrays;
 import java.util.List;
@@ -18,10 +18,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class FindAllOrganizationsServiceTest {
-  @Mock private OrganizationRepository repository;
+class FindAllOrganizationsUseCaseServiceTest {
+  @Mock private OrganizationPersistencePort repository;
 
-  @InjectMocks private FindAllOrganizationsService service;
+  @InjectMocks private FindAllOrganizationsUseCaseService service;
 
   @Test
   void findAll_ShouldReturnListOfOrganizations() {

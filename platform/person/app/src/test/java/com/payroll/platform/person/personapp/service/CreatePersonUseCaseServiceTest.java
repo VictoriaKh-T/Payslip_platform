@@ -2,7 +2,7 @@ package com.payroll.platform.person.personapp.service;
 
 import static org.mockito.Mockito.when;
 
-import com.payroll.platform.person.personapp.port.out.persistence.PersonRepository;
+import com.payroll.platform.person.personapp.port.out.persistence.PersonPersistencePort;
 import com.payroll.platform.person.persondomain.dto.CreatePersonRequest;
 import com.payroll.platform.person.persondomain.dto.CreatePersonResponse;
 import java.time.LocalDate;
@@ -14,10 +14,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class CreatePersonServiceTest {
-  @Mock private PersonRepository personRepository;
+class CreatePersonUseCaseServiceTest {
+  @Mock private PersonPersistencePort personPersistencePort;
 
-  @InjectMocks private CreatePersonService createPersonService;
+  @InjectMocks private CreatePersonUseCaseService createPersonUseCaseService;
 
   @Test
   public void testCreatePersonOK() {
@@ -28,8 +28,8 @@ class CreatePersonServiceTest {
         new CreatePersonResponse(
             1L, "john.doe@example.com", "John", "Michael", "Doe", LocalDate.of(1990, 1, 1));
 
-    when(personRepository.createPerson(request)).thenReturn(expectedResponse);
-    CreatePersonResponse actualResponse = createPersonService.createPerson(request);
+    when(personPersistencePort.createPerson(request)).thenReturn(expectedResponse);
+    CreatePersonResponse actualResponse = createPersonUseCaseService.createPerson(request);
     Assertions.assertEquals(expectedResponse, actualResponse);
   }
 }

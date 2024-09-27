@@ -3,7 +3,7 @@ package com.payroll.platform.person.personapp.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-import com.payroll.platform.person.personapp.port.out.persistence.PersonRepository;
+import com.payroll.platform.person.personapp.port.out.persistence.PersonPersistencePort;
 import com.payroll.platform.person.persondomain.dto.PersonResponse;
 import java.time.LocalDate;
 import java.util.List;
@@ -14,11 +14,12 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class FindAllPersonsServiceTest {
+class FindAllPersonsUseCaseServiceTest {
 
-  @Mock private PersonRepository personRepository;
+  @Mock private PersonPersistencePort personPersistencePort;
 
-  @InjectMocks FindAllPersonsService findAllPersonsService;
+  @InjectMocks
+  FindAllPersonsUseCaseService findAllPersonsUseCaseService;
 
   @Test
   public void SuccessFindAllPersonsService() {
@@ -37,9 +38,9 @@ class FindAllPersonsServiceTest {
                 "Jones",
                 LocalDate.of(1992, 12, 15)));
 
-    when(personRepository.findAllPersons()).thenReturn(personList);
+    when(personPersistencePort.findAllPersons()).thenReturn(personList);
 
-    List<PersonResponse> result = findAllPersonsService.findAllPersons();
+    List<PersonResponse> result = findAllPersonsUseCaseService.findAllPersons();
     assertEquals(3, result.size());
   }
 }

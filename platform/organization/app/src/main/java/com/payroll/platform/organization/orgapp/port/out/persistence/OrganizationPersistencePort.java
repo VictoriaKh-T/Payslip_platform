@@ -7,7 +7,7 @@ import com.payroll.platform.organization.orgdomain.dto.UpdateOrganizationRequest
 import com.payroll.platform.organization.orgdomain.dto.UpdateOrganizationResponse;
 import java.util.List;
 
-public interface OrganizationRepository {
+public interface OrganizationPersistencePort {
   OrganizationResponse createOrganization(OrganizationRequest organization);
 
   OrganizationResponse findByOrganizationId(Long organizationId);

@@ -1,7 +1,7 @@
 package com.payroll.platform.person.personinfra.adapter.driven.persistence.repository;
 
 import com.payroll.platform.hexagonal.annotations.Adapter;
-import com.payroll.platform.person.personapp.port.out.persistence.PersonRepository;
+import com.payroll.platform.person.personapp.port.out.persistence.PersonPersistencePort;
 import com.payroll.platform.person.persondomain.dto.CreatePersonRequest;
 import com.payroll.platform.person.persondomain.dto.CreatePersonResponse;
 import com.payroll.platform.person.persondomain.dto.PersonResponse;
@@ -16,7 +16,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Adapter
-public class PersonAdapter implements PersonRepository {
+public class PersonAdapter implements PersonPersistencePort {
   private final PersonPostgresRepository repository;
   private final PersonEntityToCreateDtoMapper createMapper = PersonEntityToCreateDtoMapper.INSTANCE;
   private final PersonEntityToUpdateDtoMapper updateMapper = PersonEntityToUpdateDtoMapper.INSTANCE;
